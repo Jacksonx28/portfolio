@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notices — The Lagos Correspondent</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scan-line"></div>
+<div class="newspaper">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="left-text">Est. 1902 &nbsp;·&nbsp; Lagos, Nigeria</span>
+      <button class="theme-toggle" onclick="toggleTheme()">☀ / ☽ Mode</button>
+    </div>
+    <h1 class="paper-title"><a href="index.html">The Lagos Correspondent</a></h1>
+    <p class="paper-subtitle">❦ &nbsp; Code, Craft &amp; the Written Word &nbsp; ❦</p>
+    <nav class="masthead-nav">
+      <a href="index.html">Front Page</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="writing.html">Writing</a>
+      <a href="notices.html" class="current">Notices</a>
+    </nav>
+    <div class="masthead-dateline">
+      <span>Lagos, Nigeria</span>
+      <span>Vol. XXIV, No. 7</span>
+      <span>2025 Edition</span>
+    </div>
+  </header>
+
+  <div class="edition-banner">✦ &nbsp; Notices &amp; Correspondence &nbsp; ✦</div>
+
+  <div class="content-wrapper">
+    <div class="section-head">
+      <div class="section-head-rule"></div>
+      <div class="section-head-label">Get In Touch</div>
+      <div class="section-head-rule"></div>
+    </div>
+
+    <p class="body-text" style="text-align:center; font-size:16px; margin-bottom:1.2rem; max-width:600px; margin-left:auto; margin-right:auto;">
+      <strong>Open for dev work, Web3 content, and writing commissions.</strong><br>
+      Pick any channel below — a reply will follow promptly.
+    </p>
+
+    <div class="classifieds">
+      <div class="classifieds-head">Notices of Engagement</div>
+      <p class="classifieds-intro">Israel Olanrewaju Amoo &nbsp;·&nbsp; Lagos, Nigeria &nbsp;·&nbsp; Available Now</p>
+      <div class="classifieds-grid">
+        <div class="classified-item">
+          <div class="classified-label">📬 Email</div>
+          <div class="classified-value"><a href="mailto:israeljackson854@gmail.com">israeljackson854@gmail.com</a></div>
+        </div>
+        <div class="classified-item">
+          <div class="classified-label">🐦 X / Twitter</div>
+          <div class="classified-value"><a href="https://x.com/kingjackson_eth" target="_blank" rel="noopener">@kingjackson_eth</a></div>
+        </div>
+        <div class="classified-item">
+          <div class="classified-label">🔗 LinkedIn</div>
+          <div class="classified-value"><a href="https://www.linkedin.com/in/israeljackson854/" target="_blank" rel="noopener">israeljackson854</a></div>
+        </div>
+        <div class="classified-item">
+          <div class="classified-label">📝 Medium</div>
+          <div class="classified-value"><a href="https://medium.com/@Jacksonnn" target="_blank" rel="noopener">@Jacksonnn</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="margin-top:1.8rem;">
+      <p>"Thanks for reading this far. Now let's build something."</p>
+    </div>
+
+  </div>
+
+  <div class="page-flip">
+    <a href="writing.html">← Writing</a>
+    <a href="index.html">Back to Front Page →</a>
+  </div>
+
+  <hr class="footer-rule">
+  <div class="footer-text">
+    THE LAGOS CORRESPONDENT &nbsp;·&nbsp; ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; LAGOS, NIGERIA<br>
+    ❦ &nbsp; All rights reserved &nbsp; ❦ &nbsp; 2025 Edition
+  </div>
+
+</div>
+<script>
+function toggleTheme(){const h=document.documentElement,t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);localStorage.setItem('ij-theme',t);}
+(function(){const s=localStorage.getItem('ij-theme');if(s)document.documentElement.setAttribute('data-theme',s);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();
+</script>
+</body>
+</html>
