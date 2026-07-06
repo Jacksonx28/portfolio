@@ -1,0 +1,9 @@
+{
+  // Static-only site served from Cloudflare's edge (incl. the Lagos PoP).
+  // No Worker script — just the files in this repo served as assets.
+  "name": "portfolio",
+  "compatibility_date": "2026-07-06",
+  "assets": {
+    "directory": "."
+  }
+}
