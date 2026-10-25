@@ -105,7 +105,7 @@
 .curtain-masthead { font: clamp(35px,7.5vw,103px)/1 'UnifrakturMaguntia',Georgia,serif; text-align: center; padding: .25em 0 .2em; border-bottom: 5px double #3a2a10; white-space: nowrap; letter-spacing: -.03em; }
 .curtain-dateline { display: flex; justify-content: space-between; gap: 1rem; font: 9px 'Special Elite', monospace; padding: .65rem 0; text-transform: uppercase; border-bottom: 1px solid #3a2a10; }
 .curtain-story { display: grid; grid-template-columns: 1fr 175px; gap: 2rem; margin: auto 0; align-items: center; padding: 1.5rem 0; }
-.curtain-headline { font: 900 clamp(48px,9vw,132px)/.96 'Playfair Display',Georgia,serif; letter-spacing: -.065em; }
+.curtain-headline { font: 900 clamp(48px,9vw,132px)/.96 'Playfair Display',Georgia,serif; letter-spacing: -.065em; word-spacing: .1em; }
 .curtain-headline em { color: #8b1a1a; font-weight: 700; }
 .curtain-story-photo { width: 100%; aspect-ratio: .85; object-fit: cover; filter: grayscale(1) sepia(.65) contrast(1.15); border: 1px solid #3a2a10; mix-blend-mode: multiply; }
 .curtain-story-caption { font: 9px/1.7 'Special Elite', monospace; text-transform: uppercase; border-bottom: 1px solid #3a2a10; padding: .6rem 0; }
