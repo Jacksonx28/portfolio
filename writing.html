@@ -17,12 +17,28 @@
 <meta name="twitter:title" content="Writing — Articles & Threads">
 <meta name="twitter:description" content="Medium articles and X threads on blockchain, ZK proofs, NFTs and frontend craft.">
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
-<script src="theme.js"></script>
+<script src="theme.js?v=2"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="interactions.css">
+<link rel="stylesheet" href="frontpage.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
+<div class="paper-curtain" id="paper-curtain" aria-hidden="true"><div class="curtain-sheet curtain-sheet-left"><div class="curtain-cover">
+  <div class="curtain-edition"><span>Independent mind. Lagos edition.</span><span>Code · Craft · Curiosity</span></div>
+  <div class="curtain-masthead">The Lagos Correspondent</div>
+  <div class="curtain-dateline"><span>A portfolio by Israel Amoo</span><span>Fresh off the press</span><span>No. 001</span></div>
+  <div class="curtain-story"><div class="curtain-headline">Stories worth<br><em>building.</em></div><figure><img class="curtain-story-photo" src="israel-portrait.jpg" alt="" width="175" height="206"><figcaption class="curtain-story-caption">Builder. Writer.<br>Lagos-made.</figcaption></figure></div>
+  <div class="curtain-rule"></div><div class="curtain-footer"><span>Frontend engineering · Technical writing · Product</span><span>Open a new chapter →</span></div>
+</div></div><div class="curtain-sheet curtain-sheet-right"><div class="curtain-cover">
+  <div class="curtain-edition"><span>Independent mind. Lagos edition.</span><span>Code · Craft · Curiosity</span></div>
+  <div class="curtain-masthead">The Lagos Correspondent</div>
+  <div class="curtain-dateline"><span>A portfolio by Israel Amoo</span><span>Fresh off the press</span><span>No. 001</span></div>
+  <div class="curtain-story"><div class="curtain-headline">Stories worth<br><em>building.</em></div><figure><img class="curtain-story-photo" src="israel-portrait.jpg" alt="" width="175" height="206"><figcaption class="curtain-story-caption">Builder. Writer.<br>Lagos-made.</figcaption></figure></div>
+  <div class="curtain-rule"></div><div class="curtain-footer"><span>Frontend engineering · Technical writing · Product</span><span>Open a new chapter →</span></div>
+</div></div></div>
+<button class="paper-skip" id="skip-paper" type="button" hidden>Skip opening · Esc</button>
+<button class="paper-unfold" id="unfold-paper" type="button" hidden>Unfold the paper ↗</button>
 <div class="reading-progress" aria-hidden="true"></div>
 <div class="scan-line"></div>
 <div class="newspaper">
@@ -51,9 +67,11 @@
 
 
   <div class="edition-tools" aria-label="Reading room controls" data-enhancement hidden>
-    <div class="edition-tools-group"><span class="edition-seal">❧ The reading room</span><span>Lagos <time class="edition-clock"></time></span></div>
-    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Edition index <kbd>/</kbd></button><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button></div>
+    <div class="edition-tools-group"><span class="edition-seal">Lagos bureau</span><time class="edition-clock"></time></div>
+    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Index <kbd>/</kbd></button><details class="edition-preferences"><summary>Reader settings</summary><div class="preferences-panel"><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button><button type="button" data-replay-press>Replay opening ↗</button></div></details></div>
   </div>
+
+
 
   <main class="content-wrapper" id="main-content">
     <div class="section-head">
@@ -63,7 +81,7 @@
     </div>
 
     <div class="filter-bar" id="writing-filters" role="group" aria-label="Filter writing" data-enhancement hidden><button type="button" data-filter="all" aria-pressed="true">All stories</button><button type="button" data-filter="medium" aria-pressed="false">Medium</button><button type="button" data-filter="thread" aria-pressed="false">X threads</button><button type="button" data-filter="saved" aria-pressed="false">Reading list (0)</button><span class="filter-count" id="writing-count" role="status">6 stories</span></div>
-    <p class="edition-note" style="margin-bottom:.8rem">Something for the commute. Save a story to return to it on this browser.</p>
+    <p class="edition-note" style="margin-bottom:.8rem">Save a story for later. On this browser.</p>
     <div class="writing-layout">
       <div>
 
@@ -76,7 +94,7 @@
           <div>
             <p class="eyebrow">❧ Blockchain Technology</p>
             <h3 class="headline hl-md" style="color:var(--ink);">Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin</h3>
-            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.</p>
+            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">How ZK rollups bring smart contracts to Bitcoin.</p>
           </div>
         </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin for later" data-enhancement hidden>+ Save for later</button></div>
 
@@ -89,7 +107,7 @@
           <div>
             <p class="eyebrow">❧ Blockchain Technology</p>
             <h3 class="headline hl-md" style="color:var(--ink);">The Blockchain Thread You Need to Read</h3>
-            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.</p>
+            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Blockchain fundamentals, minus the jargon.</p>
           </div>
         </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save The Blockchain Thread You Need to Read for later" data-enhancement hidden>+ Save for later</button></div>
 
@@ -102,7 +120,7 @@
           <div>
             <p class="eyebrow">❧ NFTs</p>
             <h3 class="headline hl-md" style="color:var(--ink);">Introducing Mittaria Origin 🧵</h3>
-            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.</p>
+            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">An animation-led world, built with its community.</p>
           </div>
         </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Introducing Mittaria Origin 🧵 for later" data-enhancement hidden>+ Save for later</button></div>
 
@@ -115,7 +133,7 @@
           <div>
             <p class="eyebrow">❧ NFTs</p>
             <h3 class="headline hl-md" style="color:var(--ink);">NFTs Are Not Dead — You're Just Looking in the Wrong Place</h3>
-            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.</p>
+            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">What NFT builders are still making.</p>
           </div>
         </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save NFTs Are Not Dead — You're Just Looking in the Wrong Place for later" data-enhancement hidden>+ Save for later</button></div>
 
@@ -128,7 +146,7 @@
           <div>
             <p class="eyebrow">❧ Blockchain Technology</p>
             <h3 class="headline hl-md" style="color:var(--ink);">Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain</h3>
-            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.</p>
+            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Giving smart contracts a wider view.</p>
           </div>
         </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain for later" data-enhancement hidden>+ Save for later</button></div>
 
@@ -141,25 +159,17 @@
           <div>
             <p class="eyebrow">❧ Blockchain Technology</p>
             <h3 class="headline hl-md" style="color:var(--ink);">Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum</h3>
-            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.</p>
+            <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Why zero-knowledge proofs matter for builders.</p>
           </div>
         </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum for later" data-enhancement hidden>+ Save for later</button></div>
 
-        <p class="empty-state" id="reading-empty" hidden>Your reading list is waiting for its first story. Choose All stories, then Save for later.</p>
+        <p class="empty-state" id="reading-empty" hidden>Nothing saved yet. Pick a story from All stories.</p>
       </div>
 
       <div>
         <div class="skills-box" style="margin-bottom:1rem;">
           <div class="skills-box-head">Writing Topics</div>
-          <ul class="writing-list">
-            <li><strong>ZK Proofs &amp; Rollups</strong></li>
-            <li><strong>Bitcoin L2s</strong></li>
-            <li><strong>NFT Projects</strong></li>
-            <li><strong>DeFi Protocols</strong></li>
-            <li><strong>Web3 Culture</strong></li>
-            <li><strong>Frontend Craft</strong></li>
-            <li><strong>Lagos Tech Scene</strong></li>
-          </ul>
+          <ul class="writing-list"><li>ZK &amp; Bitcoin</li><li>NFTs &amp; Web3 culture</li><li>Technology, made clear</li></ul>
         </div>
         <div class="pull-quote">
           <p>"Complex things explained simply. That's the job."</p>
@@ -179,10 +189,7 @@
   </div>
 
   <hr class="footer-rule">
-  <div class="footer-text">
-    THE LAGOS CORRESPONDENT &nbsp;·&nbsp; ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; LAGOS, NIGERIA<br>
-    ❦ &nbsp; All rights reserved &nbsp; ❦ &nbsp; 2025 Edition
-  </div>
+  <div class="footer-text">ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; CODE, CRAFT &amp; THE WRITTEN WORD &nbsp;·&nbsp; LAGOS</div>
 
 </div>
 
@@ -198,7 +205,8 @@
 <div class="edition-toast" id="edition-status" role="status" aria-live="polite" hidden></div>
 <button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
 <script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Villa Corallina", "description": "Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.", "type": "Project · Design & development", "url": "portfolio.html#villa-corallina"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
-<script src="edition.js" defer></script>
+<script src="press-transition.js" defer></script>
+<script src="edition.js?v=2" defer></script>
 
 </body>
 </html>

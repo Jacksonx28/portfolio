@@ -128,7 +128,7 @@
   // Keep the breaking strip readable and let visitors stop its rotation.
   const ticker = $('#breakingTicker');
   if (ticker) {
-    const roles = ['Currently available for Frontend Engineering opportunities.', 'Currently available for Technical Writing engagements.', 'Currently available for Product Development roles.', 'Currently available for Web3 collaborations.'];
+    const roles = ['Open for frontend, writing & product work.', 'Built in Lagos. Made for the web.', 'A good idea deserves a good build.', 'Explore the work. Stay for the Sunday supplement.'];
     const tickerButton = $('[data-toggle-ticker]');
     let role = 0;
     let paused = !motionEnabled();
@@ -208,22 +208,7 @@
     }
   });
 
-  // Turn pages without intercepting downloads, hash links, or new-tab gestures.
-  let navigating = false;
-  let navigationTimer;
-  const paper = $('.newspaper');
-  addEventListener('pageshow', () => {
-    navigating = false;
-    clearTimeout(navigationTimer);
-    paper?.classList.remove('turning-page');
-    try {
-      if (sessionStorage.getItem('ij-page-turn') === '1') {
-        root.classList.add('page-arriving');
-        sessionStorage.removeItem('ij-page-turn');
-        setTimeout(() => root.classList.remove('page-arriving'), 600);
-      }
-    } catch { /* Page transitions also work without session storage. */ }
-  });
+  // Small ink feedback; press-transition.js owns the full newspaper reveal.
   document.addEventListener('click', event => {
     const control = event.target.closest('a, button');
     if (control) pressSound();
@@ -236,16 +221,7 @@
       ring.addEventListener('animationend', () => ring.remove(), { once: true });
       setTimeout(() => ring.remove(), 700);
     }
-    const link = event.target.closest('a[href]');
-    if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
-    const url = new URL(link.href, location.href);
-    if (url.origin !== location.origin || url.pathname === location.pathname || !/\/(index|portfolio|writing|notices)\.html$/.test(url.pathname) || !motionEnabled()) return;
-    event.preventDefault();
-    if (navigating) return;
-    navigating = true;
-    try { sessionStorage.setItem('ij-page-turn', '1'); } catch { /* Optional. */ }
-    paper?.classList.add('turning-page');
-    navigationTimer = setTimeout(() => location.assign(url.href), 300);
+
   });
 
   // Project desk: filter the existing cards and read a project sheet before leaving.
@@ -273,8 +249,11 @@
       loadButton.setAttribute('aria-label', `Load preview of ${name}`);
       preview.append(loadButton);
       loadButton.addEventListener('click', () => {
+        frame.addEventListener('load', () => {
+          frame.classList.add('loaded');
+          $('.project-shot', card)?.setAttribute('hidden', '');
+        }, { once: true });
         frame.src = frame.dataset.src;
-        frame.addEventListener('load', () => frame.classList.add('loaded'), { once: true });
         loadButton.remove();
         const note = $('.preview-poster-note', preview);
         if (note) note.textContent = 'External preview · use Visit Site if unavailable';
@@ -282,7 +261,7 @@
     }
     $('[data-project-sheet]', card)?.addEventListener('click', () => {
       $('#project-sheet-title').textContent = name;
-      $('#project-sheet-description').textContent = $('.card-desc', card).textContent;
+      $('#project-sheet-description').textContent = card.dataset.description || $('.card-desc', card).textContent;
       $('#project-sheet-role').textContent = $('.card-role', card).textContent;
       $('#project-sheet-category').textContent = card.dataset.category.split(' ').join(' · ');
       const liveLink = $('.card-link[href]', card);

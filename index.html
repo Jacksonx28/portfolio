@@ -17,12 +17,28 @@
 <meta name="twitter:title" content="The Lagos Correspondent — Israel Olanrewaju Amoo">
 <meta name="twitter:description" content="Frontend Engineer, Technical Writer & Product Builder from Lagos, Nigeria.">
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
-<script src="theme.js"></script>
+<script src="theme.js?v=2"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="interactions.css">
+<link rel="stylesheet" href="frontpage.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
+<div class="paper-curtain" id="paper-curtain" aria-hidden="true"><div class="curtain-sheet curtain-sheet-left"><div class="curtain-cover">
+  <div class="curtain-edition"><span>Independent mind. Lagos edition.</span><span>Code · Craft · Curiosity</span></div>
+  <div class="curtain-masthead">The Lagos Correspondent</div>
+  <div class="curtain-dateline"><span>A portfolio by Israel Amoo</span><span>Fresh off the press</span><span>No. 001</span></div>
+  <div class="curtain-story"><div class="curtain-headline">Stories worth<br><em>building.</em></div><figure><img class="curtain-story-photo" src="israel-portrait.jpg" alt="" width="175" height="206"><figcaption class="curtain-story-caption">Builder. Writer.<br>Lagos-made.</figcaption></figure></div>
+  <div class="curtain-rule"></div><div class="curtain-footer"><span>Frontend engineering · Technical writing · Product</span><span>Open a new chapter →</span></div>
+</div></div><div class="curtain-sheet curtain-sheet-right"><div class="curtain-cover">
+  <div class="curtain-edition"><span>Independent mind. Lagos edition.</span><span>Code · Craft · Curiosity</span></div>
+  <div class="curtain-masthead">The Lagos Correspondent</div>
+  <div class="curtain-dateline"><span>A portfolio by Israel Amoo</span><span>Fresh off the press</span><span>No. 001</span></div>
+  <div class="curtain-story"><div class="curtain-headline">Stories worth<br><em>building.</em></div><figure><img class="curtain-story-photo" src="israel-portrait.jpg" alt="" width="175" height="206"><figcaption class="curtain-story-caption">Builder. Writer.<br>Lagos-made.</figcaption></figure></div>
+  <div class="curtain-rule"></div><div class="curtain-footer"><span>Frontend engineering · Technical writing · Product</span><span>Open a new chapter →</span></div>
+</div></div></div>
+<button class="paper-skip" id="skip-paper" type="button" hidden>Skip opening · Esc</button>
+<button class="paper-unfold" id="unfold-paper" type="button" hidden>Unfold the paper ↗</button>
 <div class="reading-progress" aria-hidden="true"></div>
 <div class="scan-line"></div>
 <div class="newspaper">
@@ -51,7 +67,7 @@
   <div class="breaking-strip">
     <span class="breaking-label">BREAKING</span>
     <div class="breaking-ticker-wrap">
-      <span class="breaking-ticker" id="breakingTicker">Currently available for Frontend Engineering opportunities.</span>
+      <span class="breaking-ticker" id="breakingTicker">Open for frontend, writing &amp; product work.</span>
     </div>
     <button class="ticker-pause" type="button" data-toggle-ticker aria-pressed="false" data-enhancement hidden>Pause</button>
   </div>
@@ -60,9 +76,11 @@
 
 
   <div class="edition-tools" aria-label="Reading room controls" data-enhancement hidden>
-    <div class="edition-tools-group"><span class="edition-seal">❧ The reading room</span><span>Lagos <time class="edition-clock"></time></span></div>
-    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Edition index <kbd>/</kbd></button><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button></div>
+    <div class="edition-tools-group"><span class="edition-seal">Lagos bureau</span><time class="edition-clock"></time></div>
+    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Index <kbd>/</kbd></button><details class="edition-preferences"><summary>Reader settings</summary><div class="preferences-panel"><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button><button type="button" data-replay-press>Replay opening ↗</button></div></details></div>
   </div>
+
+
 
   <main class="content-wrapper" id="main-content">
 
@@ -72,131 +90,49 @@
       <div class="section-head-rule"></div>
     </div>
 
-    <div class="front-grid reveal">
-      <div>
-        <p class="eyebrow">❧ Feature Profile</p>
-        <h2 class="headline hl-xl">Frontend Engineer. Technical Writer. Product Builder.</h2>
-        <p class="deck">I'm Israel Olanrewaju Amoo, a Computer Science graduate from Lagos, Nigeria, passionate about building digital products that are fast, intuitive, and solve real problems.</p>
-        <div class="front-page-links"><a href="portfolio.html">Explore my work →</a><a href="#press-room">Visit the printing room ↓</a></div>
-        <div class="byline">Feature Profile &nbsp;·&nbsp; Technology Desk &nbsp;·&nbsp; 2025</div>
-
-        <div class="body-text">
-          <p class="drop-cap">I started coding at 14 out of curiosity and have been building ever since. Today, I specialize in frontend engineering, creating responsive, accessible, and high-performance web applications with modern technologies like React, TypeScript, and JavaScript.</p>
-          <p>Alongside development, I'm a technical writer with a strong interest in blockchain and emerging technologies, making complex ideas easier to understand through clear, practical content. I've worked with startups, Web3 projects, restaurants, real estate brands, and online communities, contributing across software development, product strategy, research, marketing, and community building.</p>
-          <p>I'm driven by building products that people enjoy using, collaborating with ambitious teams, and continuously learning as technology evolves.</p>
-        </div>
-
-        <div class="stats-strip">
-          <div class="stat-item">
-            <span class="stat-num">5+</span>
-            <span class="stat-label">Years Building Software</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num">20+</span>
-            <span class="stat-label">Projects Designed &amp; Developed</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num">Web2 + Web3</span>
-            <span class="stat-label">Industry Experience</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num">Frontend • Writing • Product</span>
-            <span class="stat-label">Core Expertise</span>
-          </div>
-        </div>
+<div class="front-grid lean-front-grid reveal">
+      <div class="front-lead">
+        <p class="eyebrow">❧ The person behind the paper</p>
+        <h2 class="headline lead-headline">Builder. Writer.<br><em>Lagos-made.</em></h2>
+        <p class="deck">I’m Israel Amoo. I build thoughtful web products and make complex ideas clear.</p>
+        <div class="byline">Frontend engineering &nbsp;·&nbsp; Technical writing &nbsp;·&nbsp; Product</div>
+        <div class="front-page-links"><a href="portfolio.html">See the work ↗</a><a href="notices.html">Let’s talk ↗</a></div>
+        <details class="byline-fold"><summary>Behind the byline</summary><div class="body-text"><p>I started coding at 14. Today, I build with React, TypeScript, and JavaScript, with a focus on useful products and thoughtful interactions.</p><p>A Computer Science graduate from Lagos, I’ve worked across hospitality, property, Web3, and online communities. I also write about blockchain and emerging technology.</p></div></details>
+        <div class="stats-strip"><div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">Years building</span></div><div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">Projects made</span></div></div>
       </div>
-
       <div class="col-divider"></div>
-
-      <div>
-        <div class="portrait-box">
-          <div class="portrait-circle">
-            <img class="portrait-photo" src="israel-portrait.jpg" alt="Portrait of Israel Olanrewaju Amoo"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              onload="this.nextElementSibling.style.display='none';">
-            <span class="portrait-initials">IA</span>
-          </div>
-          <div class="portrait-caption">
-            <strong>ISRAEL OLANREWAJU AMOO</strong><br>
-            Frontend Engineer · Technical Writer<br>
-            Web3 Contributor · Product Builder<br>
-            Lagos, Nigeria · Age 22
-          </div>
-        </div>
-
-        <div class="skills-box">
-          <div class="skills-box-head">Core Skills</div>
-          <div class="skill-item"><span>Frontend Engineering</span><span class="skill-dots">◆◆◆◆◆</span></div>
-          <div class="skill-item"><span>React &amp; TypeScript</span><span class="skill-dots">◆◆◆◆◆</span></div>
-          <div class="skill-item"><span>UI / UX Design</span><span class="skill-dots">◆◆◆◆◇</span></div>
-          <div class="skill-item"><span>Technical Writing</span><span class="skill-dots">◆◆◆◆◆</span></div>
-          <div class="skill-item"><span>Web3 &amp; Blockchain</span><span class="skill-dots">◆◆◆◆◇</span></div>
-          <div class="skill-item"><span>Product Strategy</span><span class="skill-dots">◆◆◆◆◇</span></div>
-        </div>
-
-        <div class="notice-box">
-          <p class="eyebrow">❧ Notice of Availability</p>
-          <h3 class="headline hl-sm">Open for Engagement</h3>
-          <p class="body-text" style="font-size:14px; margin-top:.35rem;">Available for <strong>Frontend Engineering, Technical Writing, Product Development,</strong> and <strong>Web3 collaborations.</strong></p>
-        </div>
-
-        <div class="cv-download-box">
-          <p class="eyebrow">❧ Curriculum Vitae</p>
-          <h3 class="headline hl-sm">Download CV</h3>
-          <p class="body-text" style="font-size:13px; margin-top:.3rem; margin-bottom:.7rem;">Full résumé — experience, projects, skills, and education.</p>
-          <a class="cv-download-btn" href="israel-amoo-cv.pdf" download="Israel_Amoo_CV.pdf">↓ &nbsp;Download CV (PDF)</a>
-        </div>
-
-        <div class="archive-stamp">
-          <span class="stamp-text">✦ Morning Edition ✦</span>
-          <span class="stamp-sub">Vol. XXIV · No. 7<br>The Lagos Correspondent</span>
-        </div>
-      </div>
+      <aside class="front-byline" aria-label="The correspondent">
+        <div class="portrait-box"><span class="portrait-edition-no">Lagos / 001</span><div class="portrait-circle"><img class="portrait-photo" src="israel-portrait.jpg" alt="Israel Olanrewaju Amoo" width="320" height="220"></div><div class="portrait-caption"><strong>ISRAEL OLANREWAJU AMOO</strong><br>Code, craft &amp; a curious mind.</div></div>
+        <div class="byline-meta"><span>React · TypeScript · JavaScript</span><a href="israel-amoo-cv.pdf" download="Israel_Amoo_CV.pdf">Download CV ↓</a></div>
+      </aside>
     </div>
 
-    <div class="section-head reveal">
-      <div class="section-head-rule"></div>
-      <div class="section-head-label">Inside This Edition</div>
-      <div class="section-head-rule"></div>
-    </div>
+    <section class="selected-dispatches reveal" aria-labelledby="selected-work-title">
+      <div class="section-head"><div class="section-head-rule"></div><h2 class="section-head-label" id="selected-work-title">Selected Dispatches</h2><div class="section-head-rule"></div></div>
+      <div class="dispatch-grid">
+        <a class="dispatch" href="portfolio.html#blackbell-nigeria" aria-label="Blackbell Nigeria — View project"><figure><div class="dispatch-image"><img src="assets/blackbell.webp" alt="Blackbell Nigeria restaurant website" width="1000" height="687" loading="lazy"></div><figcaption><div><span class="dispatch-name">Blackbell Nigeria</span><span class="dispatch-meta">Hospitality · Design &amp; build</span></div><span class="dispatch-arrow" aria-hidden="true">↗</span></figcaption></figure></a>
+        <a class="dispatch" href="portfolio.html#doodlemon-jigsaw" aria-label="Doodlemon Jigsaw — View project"><figure><div class="dispatch-image"><img src="assets/doodlemon.webp" alt="Doodlemon’s playable Pokémon jigsaw collection" width="1000" height="687" loading="lazy"></div><figcaption><div><span class="dispatch-name">Doodlemon Jigsaw</span><span class="dispatch-meta">Play · Design &amp; build</span></div><span class="dispatch-arrow" aria-hidden="true">↗</span></figcaption></figure></a>
+      </div>
+      <div class="dispatch-footer"><a href="portfolio.html">All six builds →</a><a href="writing.html">Read the writing →</a></div>
+    </section>
 
-    <div class="three-col reveal" style="border-bottom:none; padding-bottom:1.5rem;">
-      <div class="col-art">
-        <p class="eyebrow">❧ Page Two</p>
-        <h2 class="headline hl-sm"><a href="portfolio.html" style="color:inherit; text-decoration:none;">Live Site Builds</a></h2>
-        <p class="body-text" style="font-size:14px;">Six real, shipped client sites across hospitality, real estate, Web3, and gaming.</p>
-      </div>
-      <div class="col-art">
-        <p class="eyebrow">❧ Page Three</p>
-        <h2 class="headline hl-sm"><a href="writing.html" style="color:inherit; text-decoration:none;">Articles &amp; Posts</a></h2>
-        <p class="body-text" style="font-size:14px;">Medium articles and X posts covering blockchain, Web3, and frontend craft.</p>
-      </div>
-      <div class="col-art">
-        <p class="eyebrow">❧ Page Four</p>
-        <h2 class="headline hl-sm"><a href="notices.html" style="color:inherit; text-decoration:none;">Notices &amp; Correspondence</a></h2>
-        <p class="body-text" style="font-size:14px;">Open for commissions. Four ways to reach him directly.</p>
-      </div>
-    </div>
-
+    <details class="sunday-supplement" id="sunday-supplement">
+      <summary><span><span class="supplement-name">The Sunday Supplement</span><span class="supplement-caption">Make a headline. Meet old Lagos.</span></span><span class="supplement-toggle" aria-hidden="true">+</span></summary>
 
     <section class="reading-room reveal" id="press-room" aria-labelledby="press-room-heading">
       <div class="section-head"><div class="section-head-rule"></div><h2 class="section-head-label" id="press-room-heading">The Printing Room</h2><div class="section-head-rule"></div></div>
-      <p class="room-deck">You have read the paper. Now make the headline.</p>
       <div class="press-grid">
         <div class="press-copy">
           <p class="eyebrow">❧ A little ink. A little mischief.</p>
           <h3 class="headline hl-lg">Tomorrow’s front page.<br>Your words.</h3>
-          <p class="body-text">A big idea, a personal victory, or something the world ought to know. Set it in type and take a little piece of this newspaper with you.</p>
+          <p class="body-text">Set a headline. Add your name. Take your own edition home.</p>
           <form class="press-form" id="press-form" data-enhancement hidden>
             <label for="press-headline">Your headline <span class="edition-note">(76 characters max)</span></label>
             <input id="press-headline" name="headline" maxlength="76" placeholder="Good things are being built in Lagos." autocomplete="off">
             <label for="press-byline">Your byline <span class="edition-note">(optional)</span></label>
             <input id="press-byline" name="byline" maxlength="48" placeholder="Filed by a curious reader" autocomplete="off">
             <div class="edition-actions"><button class="edition-action primary" type="submit" id="print-headline">↓ Print my edition</button><button class="edition-action" type="button" id="shuffle-headline">Surprise me ↻</button></div>
-            <p class="edition-note" style="margin-top:.6rem">Yours as a PNG. A fictional front page, made right here in your browser.</p>
+            <p class="edition-note" style="margin-top:.6rem">A fictional front page. Yours as a PNG.</p>
           </form>
           <noscript><p class="edition-note">Enable JavaScript to typeset and download your own edition.</p></noscript>
         </div>
@@ -214,7 +150,6 @@
 
     <section class="archive-section reveal" id="lagos-archive" aria-labelledby="archive-heading">
       <div class="section-head"><div class="section-head-rule"></div><h2 class="section-head-label" id="archive-heading">Lagos, Before the Internet</h2><div class="section-head-rule"></div></div>
-      <p class="room-deck">A small detour through the city behind the byline. Choose a year.</p>
       <div class="archive-layout">
         <div class="archive-years" role="group" aria-label="Choose an archive year">
           <button type="button" data-year="1926" aria-pressed="true" aria-controls="archive-1926">1926</button>
@@ -225,22 +160,23 @@
           <span class="archive-number" aria-hidden="true">1926</span>
           <p class="eyebrow">❧ From the newspaper archive</p>
           <h3 class="headline hl-lg">A city puts it in print.</h3>
-          <p class="body-text">The Nigerian Daily Times began publication in Lagos on 1 June 1926. Its newspaper record is preserved in the Library of Congress catalogue. Long before a link could travel around the world, the city’s stories travelled in ink.</p>
+          <p class="body-text">The Nigerian Daily Times first appeared in Lagos on 1 June 1926. Explore its record in the Library of Congress.</p>
           <div class="edition-actions"><a class="edition-action" href="https://www.loc.gov/item/sn94021149/" target="_blank" rel="noopener noreferrer">Explore the newspaper record ↗</a></div>
-          <p class="edition-note" style="margin-top:.7rem">Source: Library of Congress · Historical summary, not an original newspaper clipping.</p>
+          <p class="edition-note" style="margin-top:.7rem">Library of Congress · Historical summary.</p>
         </div>
         <div class="archive-panel" id="archive-1960" data-archive-panel="1960" hidden>
           <p class="eyebrow">❧ From the newsreel archive · 1960</p>
           <h3 class="headline hl-lg">Lagos witnesses a new chapter.</h3>
-          <p class="body-text">Nigeria became independent on 1 October 1960. British Pathé’s archive includes a newsreel of the independence celebrations in Lagos, a moving glimpse of the city at a turning point.</p>
+          <p class="body-text">Independence, 1 October 1960. See Lagos at a turning point in British Pathé’s original newsreel.</p>
           <a class="film-window" href="https://www.britishpathe.com/asset/197943/" target="_blank" rel="noopener noreferrer" aria-label="Watch the 1960 Nigeria independence newsreel at British Pathé" style="text-decoration:none">
             <div class="film-title"><strong>▶ Lagos, 1960</strong><span>Independence · Original archive newsreel ↗</span></div>
           </a>
-          <p class="edition-note">Watch at British Pathé. Archive footage and original commentary belong to their respective owners. This title card is an original illustration.</p>
+          <p class="edition-note">Watch at British Pathé · Footage and commentary credited to the archive. Illustrated title card.</p>
         </div>
       </div>
     </section>
 
+    </details>
   </main>
 
   <div class="page-flip reveal">
@@ -249,11 +185,7 @@
   </div>
 
   <hr class="footer-rule">
-  <div class="footer-text">
-    THE LAGOS CORRESPONDENT &nbsp;·&nbsp; ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; LAGOS, NIGERIA<br>
-    Morning Edition &nbsp;·&nbsp; Vol. XXIV, No. 7 &nbsp;·&nbsp; Original portfolio work. Historical sources credited above.<br>
-    ❦ &nbsp; All rights reserved &nbsp;·&nbsp; Printed in Lagos &nbsp;·&nbsp; 2025 Edition &nbsp; ❦
-  </div>
+  <div class="footer-text">ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; CODE, CRAFT &amp; THE WRITTEN WORD &nbsp;·&nbsp; LAGOS</div>
 
 </div>
 
@@ -269,7 +201,8 @@
 <div class="edition-toast" id="edition-status" role="status" aria-live="polite" hidden></div>
 <button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
 <script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Villa Corallina", "description": "Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.", "type": "Project · Design & development", "url": "portfolio.html#villa-corallina"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
-<script src="edition.js" defer></script>
+<script src="press-transition.js" defer></script>
+<script src="edition.js?v=2" defer></script>
 
 </body>
 </html>
