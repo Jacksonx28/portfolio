@@ -17,22 +17,26 @@
 <meta name="twitter:title" content="Portfolio — Live Site Builds">
 <meta name="twitter:description" content="Six real, shipped client sites across hospitality, real estate, Web3 and gaming.">
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="interactions.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
 <div class="scan-line"></div>
 <div class="newspaper">
 
   <header class="masthead">
     <div class="masthead-top">
       <span class="left-text">Est. 1902 &nbsp;·&nbsp; Lagos, Nigeria</span>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀ / ☽ Mode</button>
+      <button class="theme-toggle" aria-label="Toggle light or dark mode">☀ / ☽ Mode</button>
     </div>
     <h1 class="paper-title"><a href="index.html">The Lagos Correspondent</a></h1>
     <p class="paper-subtitle">❦ &nbsp; Code, Craft &amp; the Written Word &nbsp; ❦</p>
-    <nav class="masthead-nav">
+    <nav class="masthead-nav" aria-label="Main navigation">
       <a href="index.html">Front Page</a>
-      <a href="portfolio.html" class="current">Portfolio</a>
+      <a href="portfolio.html" class="current" aria-current="page">Portfolio</a>
       <a href="writing.html">Writing</a>
       <a href="notices.html">Notices</a>
     </nav>
@@ -45,7 +49,13 @@
 
   <div class="edition-banner">✦ &nbsp; Portfolio: Live Site Builds &nbsp; ✦</div>
 
-  <div class="content-wrapper">
+
+  <div class="edition-tools" aria-label="Reading room controls" data-enhancement hidden>
+    <div class="edition-tools-group"><span class="edition-seal">❧ The reading room</span><span>Lagos <time class="edition-clock"></time></span></div>
+    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Edition index <kbd>/</kbd></button><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button></div>
+  </div>
+
+  <main class="content-wrapper" id="main-content">
     <div class="section-head">
       <div class="section-head-rule"></div>
       <div class="section-head-label">Shipped Client Work</div>
@@ -53,120 +63,123 @@
     </div>
     <p class="supplement-intro">
       <strong>Six real sites. Six real clients.</strong> Designed and built by Israel Olanrewaju Amoo.<br>
-      Click any card to visit the live site.
+      Filter the desk, open a project sheet, or load a live preview.
     </p>
 
+    <div class="filter-bar" id="project-filters" role="group" aria-label="Filter projects" data-enhancement hidden><button type="button" data-filter="all" aria-pressed="true">All work</button><button type="button" data-filter="hospitality" aria-pressed="false">Hospitality</button><button type="button" data-filter="property" aria-pressed="false">Property</button><button type="button" data-filter="commerce" aria-pressed="false">Commerce</button><button type="button" data-filter="web3" aria-pressed="false">Web3</button><button type="button" data-filter="play" aria-pressed="false">Play</button><span class="filter-count" id="project-count" role="status">6 projects</span></div>
     <div class="site-cards-grid">
 
-      <div class="site-card">
+      <div class="site-card" id="blackbell-nigeria" data-category="hospitality">
         <div class="card-chrome">
           <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
           <div class="chrome-url">jacksonx28.github.io/Blackbellngn</div>
         </div>
         <div class="card-preview">
           <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">B</div><div class="preview-poster-name">Blackbell Nigeria</div><div class="preview-poster-note">Live Preview</div></div>
-          <iframe src="https://jacksonx28.github.io/Blackbellngn/" title="Blackbell Nigeria" loading="lazy" sandbox="allow-scripts allow-same-origin" onload="this.classList.add('loaded')"></iframe>
-          <a class="card-preview-overlay" href="https://jacksonx28.github.io/Blackbellngn/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+          <iframe data-src="https://jacksonx28.github.io/Blackbellngn/" title="Blackbell Nigeria" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
         <div class="card-body">
           <span class="card-role">Design / Build</span>
           <div class="card-title">Blackbell Nigeria</div>
           <div class="card-desc">Fine dining restaurant — full menu presentation, clean booking experience.</div>
+          <div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Open project sheet +</button></div>
           <a class="card-link" href="https://jacksonx28.github.io/Blackbellngn/" target="_blank" rel="noopener">Visit Site →</a>
         </div>
       </div>
 
-      <div class="site-card" style="pointer-events:none; cursor:default;">
+      <div class="site-card" id="vistacraft-homes" data-category="property">
         <div class="card-chrome">
           <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
           <div class="chrome-url">Vistacraft Homes</div>
         </div>
         <div class="card-preview">
           <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">V</div><div class="preview-poster-name">Vistacraft Homes</div><div class="preview-poster-note">Preview</div></div>
-          <iframe src="https://tiny-cheesecake-a3c394.netlify.app/" title="Vistacraft Homes" loading="lazy" sandbox="allow-scripts allow-same-origin" style="pointer-events:none;" onload="this.classList.add('loaded')"></iframe>
+          <iframe data-src="https://tiny-cheesecake-a3c394.netlify.app/" title="Vistacraft Homes" loading="lazy" sandbox="allow-scripts allow-same-origin" style="pointer-events:none;"></iframe>
         </div>
         <div class="card-body">
           <span class="card-role">Design / Build</span>
           <div class="card-title">Vistacraft Homes</div>
           <div class="card-desc">Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.</div>
+          <div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Open project sheet +</button></div>
           <span class="card-link" style="color:var(--rule-light); border-color:var(--rule-light); cursor:default; opacity:0.6;">Preview Only</span>
         </div>
       </div>
 
-      <div class="site-card">
+      <div class="site-card" id="villa-corallina" data-category="hospitality">
         <div class="card-chrome">
           <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
           <div class="chrome-url">jacksonx28.github.io/villa-corallina</div>
         </div>
         <div class="card-preview">
           <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">VC</div><div class="preview-poster-name">Villa Corallina</div><div class="preview-poster-note">Live Preview</div></div>
-          <iframe src="https://jacksonx28.github.io/villa-corallina-prototype/" title="Villa Corallina" loading="lazy" sandbox="allow-scripts allow-same-origin" onload="this.classList.add('loaded')"></iframe>
-          <a class="card-preview-overlay" href="https://jacksonx28.github.io/villa-corallina-prototype/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+          <iframe data-src="https://jacksonx28.github.io/villa-corallina-prototype/" title="Villa Corallina" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
         <div class="card-body">
           <span class="card-role">Design / Build</span>
           <div class="card-title">Villa Corallina</div>
           <div class="card-desc">Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.</div>
+          <div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Open project sheet +</button></div>
           <a class="card-link" href="https://jacksonx28.github.io/villa-corallina-prototype/" target="_blank" rel="noopener">Visit Site →</a>
         </div>
       </div>
 
-      <div class="site-card">
+      <div class="site-card" id="figure234" data-category="commerce">
         <div class="card-chrome">
           <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
           <div class="chrome-url">figure234.vercel.app</div>
         </div>
         <div class="card-preview">
           <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">F</div><div class="preview-poster-name">Figure234</div><div class="preview-poster-note">Live Preview</div></div>
-          <iframe src="https://figure234.vercel.app/" title="Figure234" loading="lazy" sandbox="allow-scripts allow-same-origin" onload="this.classList.add('loaded')"></iframe>
-          <a class="card-preview-overlay" href="https://figure234.vercel.app/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+          <iframe data-src="https://figure234.vercel.app/" title="Figure234" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
         <div class="card-body">
           <span class="card-role">Design / Build</span>
           <div class="card-title">Figure234</div>
           <div class="card-desc">Collectible figure ordering platform — built for serious collectors, optimised to convert.</div>
+          <div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Open project sheet +</button></div>
           <a class="card-link" href="https://figure234.vercel.app/" target="_blank" rel="noopener">Visit Site →</a>
         </div>
       </div>
 
-      <div class="site-card">
+      <div class="site-card" id="degen-lifestyles" data-category="web3">
         <div class="card-chrome">
           <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
           <div class="chrome-url">degenlifestyles.xyz</div>
         </div>
         <div class="card-preview">
           <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">D</div><div class="preview-poster-name">Degen Lifestyles</div><div class="preview-poster-note">Live Preview</div></div>
-          <iframe src="https://degenlifestyles.xyz/" title="Degen Lifestyles" loading="lazy" sandbox="allow-scripts allow-same-origin" onload="this.classList.add('loaded')"></iframe>
-          <a class="card-preview-overlay" href="https://degenlifestyles.xyz/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+          <iframe data-src="https://degenlifestyles.xyz/" title="Degen Lifestyles" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
         <div class="card-body">
           <span class="card-role">Design / Front-End</span>
           <div class="card-title">Degen Lifestyles</div>
           <div class="card-desc">Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.</div>
+          <div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Open project sheet +</button></div>
           <a class="card-link" href="https://degenlifestyles.xyz/" target="_blank" rel="noopener">Visit Site →</a>
         </div>
       </div>
 
-      <div class="site-card">
+      <div class="site-card" id="doodlemon-jigsaw" data-category="web3 play">
         <div class="card-chrome">
           <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
           <div class="chrome-url">doodlemonjigsaw.netlify.app</div>
         </div>
         <div class="card-preview">
           <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">DJ</div><div class="preview-poster-name">Doodlemon Jigsaw</div><div class="preview-poster-note">Live Preview</div></div>
-          <iframe src="https://doodlemonjigsaw.netlify.app/" title="Doodlemon Jigsaw" loading="lazy" sandbox="allow-scripts allow-same-origin" onload="this.classList.add('loaded')"></iframe>
-          <a class="card-preview-overlay" href="https://doodlemonjigsaw.netlify.app/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+          <iframe data-src="https://doodlemonjigsaw.netlify.app/" title="Doodlemon Jigsaw" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
         <div class="card-body">
           <span class="card-role">Design / Build</span>
           <div class="card-title">Doodlemon Jigsaw</div>
           <div class="card-desc">Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.</div>
+          <div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Open project sheet +</button></div>
           <a class="card-link" href="https://doodlemonjigsaw.netlify.app/" target="_blank" rel="noopener">Visit Site →</a>
         </div>
       </div>
 
     </div>
-  </div>
+    <noscript><p class="edition-note">Live preview controls need JavaScript. The Visit Site links above work directly.</p></noscript>
+  </main>
 
   <div class="page-flip">
     <a href="index.html">← Front Page</a>
@@ -180,9 +193,21 @@
   </div>
 
 </div>
-<script>
-function toggleTheme(){const h=document.documentElement,t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);localStorage.setItem('ij-theme',t);}
-(function(){const s=localStorage.getItem('ij-theme');if(s)document.documentElement.setAttribute('data-theme',s);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();
-</script>
+
+
+<dialog class="edition-dialog" id="project-sheet" aria-labelledby="project-sheet-title"><div class="dialog-head"><div><p class="eyebrow">❧ From the project desk</p><h2 id="project-sheet-title">Project sheet</h2></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close project sheet">✕</button></div><div class="project-detail-text"><h3>The project</h3><p id="project-sheet-description"></p><h3>My role</h3><p id="project-sheet-role"></p><h3>Filed under</h3><p id="project-sheet-category" style="text-transform:capitalize"></p><p class="edition-note" id="project-sheet-preview-note">This project is shown as preview only in the portfolio.</p></div><div class="edition-actions"><a class="edition-action primary" id="project-sheet-visit" href="portfolio.html" target="_blank" rel="noopener noreferrer">Visit live site ↗</a></div></dialog>
+<dialog class="edition-dialog" id="edition-index" aria-labelledby="edition-index-title">
+  <div class="dialog-head"><div><p class="eyebrow">❧ Find your next story</p><h2 id="edition-index-title">The Edition Index</h2></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close edition index">✕</button></div>
+  <label class="index-search-label" for="edition-search">Search projects, stories, or a page</label>
+  <input class="edition-search" id="edition-search" type="search" placeholder="Try “Web3”, “restaurant”, or “Bitcoin”…" autocomplete="off">
+  <p id="index-count" class="edition-note" role="status" aria-live="polite"></p>
+  <ul class="index-results" id="index-results" aria-label="Search results"></ul>
+  <p class="edition-note">Press Esc to return to your page. Open this index with / or Ctrl / ⌘ K.</p>
+</dialog>
+<div class="edition-toast" id="edition-status" role="status" aria-live="polite" hidden></div>
+<button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
+<script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Villa Corallina", "description": "Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.", "type": "Project · Design & development", "url": "portfolio.html#villa-corallina"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
+<script src="edition.js" defer></script>
+
 </body>
 </html>

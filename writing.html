@@ -17,23 +17,27 @@
 <meta name="twitter:title" content="Writing — Articles & Threads">
 <meta name="twitter:description" content="Medium articles and X threads on blockchain, ZK proofs, NFTs and frontend craft.">
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="interactions.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
 <div class="scan-line"></div>
 <div class="newspaper">
 
   <header class="masthead">
     <div class="masthead-top">
       <span class="left-text">Est. 1902 &nbsp;·&nbsp; Lagos, Nigeria</span>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀ / ☽ Mode</button>
+      <button class="theme-toggle" aria-label="Toggle light or dark mode">☀ / ☽ Mode</button>
     </div>
     <h1 class="paper-title"><a href="index.html">The Lagos Correspondent</a></h1>
     <p class="paper-subtitle">❦ &nbsp; Code, Craft &amp; the Written Word &nbsp; ❦</p>
-    <nav class="masthead-nav">
+    <nav class="masthead-nav" aria-label="Main navigation">
       <a href="index.html">Front Page</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="writing.html" class="current">Writing</a>
+      <a href="writing.html" class="current" aria-current="page">Writing</a>
       <a href="notices.html">Notices</a>
     </nav>
     <div class="masthead-dateline">
@@ -45,18 +49,26 @@
 
   <div class="edition-banner">✦ &nbsp; Articles &amp; Threads &nbsp; ✦</div>
 
-  <div class="content-wrapper">
+
+  <div class="edition-tools" aria-label="Reading room controls" data-enhancement hidden>
+    <div class="edition-tools-group"><span class="edition-seal">❧ The reading room</span><span>Lagos <time class="edition-clock"></time></span></div>
+    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Edition index <kbd>/</kbd></button><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button></div>
+  </div>
+
+  <main class="content-wrapper" id="main-content">
     <div class="section-head">
       <div class="section-head-rule"></div>
       <div class="section-head-label">Published Articles &amp; Threads</div>
       <div class="section-head-rule"></div>
     </div>
 
+    <div class="filter-bar" id="writing-filters" role="group" aria-label="Filter writing" data-enhancement hidden><button type="button" data-filter="all" aria-pressed="true">All stories</button><button type="button" data-filter="medium" aria-pressed="false">Medium</button><button type="button" data-filter="thread" aria-pressed="false">X threads</button><button type="button" data-filter="saved" aria-pressed="false">Reading list (0)</button><span class="filter-count" id="writing-count" role="status">6 stories</span></div>
+    <p class="edition-note" style="margin-bottom:.8rem">Something for the commute. Save a story to return to it on this browser.</p>
     <div class="writing-layout">
       <div>
 
         <!-- Medium 1 -->
-        <a class="article-entry" href="https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb" target="_blank" rel="noopener">
+        <div class="article-wrap" id="citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin" data-article="citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin" data-source="medium"><a class="article-entry" href="https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb" target="_blank" rel="noopener">
           <div class="article-source">
             <span class="source-icon">Ⓜ</span>
             <span class="source-label">Medium</span>
@@ -66,10 +78,10 @@
             <h3 class="headline hl-md" style="color:var(--ink);">Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin</h3>
             <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.</p>
           </div>
-        </a>
+        </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin for later" data-enhancement hidden>+ Save for later</button></div>
 
         <!-- X Thread 1 -->
-        <a class="article-entry" href="https://x.com/kingjackson_eth/status/1885987423995195669" target="_blank" rel="noopener">
+        <div class="article-wrap" id="the-blockchain-thread-you-need-to-read" data-article="the-blockchain-thread-you-need-to-read" data-source="thread"><a class="article-entry" href="https://x.com/kingjackson_eth/status/1885987423995195669" target="_blank" rel="noopener">
           <div class="article-source">
             <span class="source-icon">𝕏</span>
             <span class="source-label">Thread</span>
@@ -79,10 +91,10 @@
             <h3 class="headline hl-md" style="color:var(--ink);">The Blockchain Thread You Need to Read</h3>
             <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.</p>
           </div>
-        </a>
+        </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save The Blockchain Thread You Need to Read for later" data-enhancement hidden>+ Save for later</button></div>
 
         <!-- Medium 2 -->
-        <a class="article-entry" href="https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e" target="_blank" rel="noopener">
+        <div class="article-wrap" id="introducing-mittaria-origin" data-article="introducing-mittaria-origin" data-source="medium"><a class="article-entry" href="https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e" target="_blank" rel="noopener">
           <div class="article-source">
             <span class="source-icon">Ⓜ</span>
             <span class="source-label">Medium</span>
@@ -92,10 +104,10 @@
             <h3 class="headline hl-md" style="color:var(--ink);">Introducing Mittaria Origin 🧵</h3>
             <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.</p>
           </div>
-        </a>
+        </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Introducing Mittaria Origin 🧵 for later" data-enhancement hidden>+ Save for later</button></div>
 
         <!-- X Thread 2 -->
-        <a class="article-entry" href="https://x.com/kingjackson_eth/status/2056751882916307359" target="_blank" rel="noopener">
+        <div class="article-wrap" id="nfts-are-not-dead-you-re-just-looking-in-the-wrong-place" data-article="nfts-are-not-dead-you-re-just-looking-in-the-wrong-place" data-source="thread"><a class="article-entry" href="https://x.com/kingjackson_eth/status/2056751882916307359" target="_blank" rel="noopener">
           <div class="article-source">
             <span class="source-icon">𝕏</span>
             <span class="source-label">Thread</span>
@@ -105,10 +117,10 @@
             <h3 class="headline hl-md" style="color:var(--ink);">NFTs Are Not Dead — You're Just Looking in the Wrong Place</h3>
             <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.</p>
           </div>
-        </a>
+        </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save NFTs Are Not Dead — You're Just Looking in the Wrong Place for later" data-enhancement hidden>+ Save for later</button></div>
 
         <!-- Medium 3 -->
-        <a class="article-entry" href="https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4" target="_blank" rel="noopener">
+        <div class="article-wrap" id="brevis-the-zk-coprocessor-transforming-data-driven-blockchain" data-article="brevis-the-zk-coprocessor-transforming-data-driven-blockchain" data-source="medium"><a class="article-entry" href="https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4" target="_blank" rel="noopener">
           <div class="article-source">
             <span class="source-icon">Ⓜ</span>
             <span class="source-label">Medium</span>
@@ -118,10 +130,10 @@
             <h3 class="headline hl-md" style="color:var(--ink);">Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain</h3>
             <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.</p>
           </div>
-        </a>
+        </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain for later" data-enhancement hidden>+ Save for later</button></div>
 
         <!-- X Thread 3 -->
-        <a class="article-entry" href="https://x.com/kingjackson_eth/status/1884619133150462299" target="_blank" rel="noopener">
+        <div class="article-wrap" id="why-zk-proofs-are-the-biggest-shift-in-blockchain-since-ethereum" data-article="why-zk-proofs-are-the-biggest-shift-in-blockchain-since-ethereum" data-source="thread"><a class="article-entry" href="https://x.com/kingjackson_eth/status/1884619133150462299" target="_blank" rel="noopener">
           <div class="article-source">
             <span class="source-icon">𝕏</span>
             <span class="source-label">Thread</span>
@@ -131,8 +143,9 @@
             <h3 class="headline hl-md" style="color:var(--ink);">Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum</h3>
             <p class="body-text" style="font-size:14px; margin-top:.25rem; color:var(--sepia);">Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.</p>
           </div>
-        </a>
+        </a><button class="bookmark-button" type="button" aria-pressed="false" aria-label="Save Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum for later" data-enhancement hidden>+ Save for later</button></div>
 
+        <p class="empty-state" id="reading-empty" hidden>Your reading list is waiting for its first story. Choose All stories, then Save for later.</p>
       </div>
 
       <div>
@@ -158,7 +171,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <div class="page-flip">
     <a href="portfolio.html">← Portfolio</a>
@@ -172,9 +185,20 @@
   </div>
 
 </div>
-<script>
-function toggleTheme(){const h=document.documentElement,t=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',t);localStorage.setItem('ij-theme',t);}
-(function(){const s=localStorage.getItem('ij-theme');if(s)document.documentElement.setAttribute('data-theme',s);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();
-</script>
+
+
+<dialog class="edition-dialog" id="edition-index" aria-labelledby="edition-index-title">
+  <div class="dialog-head"><div><p class="eyebrow">❧ Find your next story</p><h2 id="edition-index-title">The Edition Index</h2></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close edition index">✕</button></div>
+  <label class="index-search-label" for="edition-search">Search projects, stories, or a page</label>
+  <input class="edition-search" id="edition-search" type="search" placeholder="Try “Web3”, “restaurant”, or “Bitcoin”…" autocomplete="off">
+  <p id="index-count" class="edition-note" role="status" aria-live="polite"></p>
+  <ul class="index-results" id="index-results" aria-label="Search results"></ul>
+  <p class="edition-note">Press Esc to return to your page. Open this index with / or Ctrl / ⌘ K.</p>
+</dialog>
+<div class="edition-toast" id="edition-status" role="status" aria-live="polite" hidden></div>
+<button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
+<script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Villa Corallina", "description": "Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.", "type": "Project · Design & development", "url": "portfolio.html#villa-corallina"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
+<script src="edition.js" defer></script>
+
 </body>
 </html>
