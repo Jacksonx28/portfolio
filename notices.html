@@ -17,12 +17,28 @@
 <meta name="twitter:title" content="Notices — Get In Touch">
 <meta name="twitter:description" content="Open for dev work, Web3 content and writing commissions. Four ways to reach me.">
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
-<script src="theme.js"></script>
+<script src="theme.js?v=2"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="interactions.css">
+<link rel="stylesheet" href="frontpage.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
+<div class="paper-curtain" id="paper-curtain" aria-hidden="true"><div class="curtain-sheet curtain-sheet-left"><div class="curtain-cover">
+  <div class="curtain-edition"><span>Independent mind. Lagos edition.</span><span>Code · Craft · Curiosity</span></div>
+  <div class="curtain-masthead">The Lagos Correspondent</div>
+  <div class="curtain-dateline"><span>A portfolio by Israel Amoo</span><span>Fresh off the press</span><span>No. 001</span></div>
+  <div class="curtain-story"><div class="curtain-headline">Stories worth<br><em>building.</em></div><figure><img class="curtain-story-photo" src="israel-portrait.jpg" alt="" width="175" height="206"><figcaption class="curtain-story-caption">Builder. Writer.<br>Lagos-made.</figcaption></figure></div>
+  <div class="curtain-rule"></div><div class="curtain-footer"><span>Frontend engineering · Technical writing · Product</span><span>Open a new chapter →</span></div>
+</div></div><div class="curtain-sheet curtain-sheet-right"><div class="curtain-cover">
+  <div class="curtain-edition"><span>Independent mind. Lagos edition.</span><span>Code · Craft · Curiosity</span></div>
+  <div class="curtain-masthead">The Lagos Correspondent</div>
+  <div class="curtain-dateline"><span>A portfolio by Israel Amoo</span><span>Fresh off the press</span><span>No. 001</span></div>
+  <div class="curtain-story"><div class="curtain-headline">Stories worth<br><em>building.</em></div><figure><img class="curtain-story-photo" src="israel-portrait.jpg" alt="" width="175" height="206"><figcaption class="curtain-story-caption">Builder. Writer.<br>Lagos-made.</figcaption></figure></div>
+  <div class="curtain-rule"></div><div class="curtain-footer"><span>Frontend engineering · Technical writing · Product</span><span>Open a new chapter →</span></div>
+</div></div></div>
+<button class="paper-skip" id="skip-paper" type="button" hidden>Skip opening · Esc</button>
+<button class="paper-unfold" id="unfold-paper" type="button" hidden>Unfold the paper ↗</button>
 <div class="reading-progress" aria-hidden="true"></div>
 <div class="scan-line"></div>
 <div class="newspaper">
@@ -51,9 +67,11 @@
 
 
   <div class="edition-tools" aria-label="Reading room controls" data-enhancement hidden>
-    <div class="edition-tools-group"><span class="edition-seal">❧ The reading room</span><span>Lagos <time class="edition-clock"></time></span></div>
-    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Edition index <kbd>/</kbd></button><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button></div>
+    <div class="edition-tools-group"><span class="edition-seal">Lagos bureau</span><time class="edition-clock"></time></div>
+    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Index <kbd>/</kbd></button><details class="edition-preferences"><summary>Reader settings</summary><div class="preferences-panel"><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button><button type="button" data-replay-press>Replay opening ↗</button></div></details></div>
   </div>
+
+
 
   <main class="content-wrapper" id="main-content">
     <div class="section-head">
@@ -62,14 +80,11 @@
       <div class="section-head-rule"></div>
     </div>
 
-    <p class="body-text" style="text-align:center; font-size:16px; margin-bottom:1.2rem; max-width:600px; margin-left:auto; margin-right:auto;">
-      <strong>Open for dev work, Web3 content, and writing commissions.</strong><br>
-      Pick any channel below — a reply will follow promptly.
-    </p>
+    <p class="supplement-intro">Good ideas deserve a conversation.</p>
 
     <div class="classifieds">
       <div class="classifieds-head">Notices of Engagement</div>
-      <p class="classifieds-intro">Israel Olanrewaju Amoo &nbsp;·&nbsp; Lagos, Nigeria &nbsp;·&nbsp; Available Now</p>
+      <p class="classifieds-intro">Lagos, Nigeria &nbsp;·&nbsp; Open for work</p>
       <div class="classifieds-grid">
         <div class="classified-item">
           <div class="classified-label">📬 Email</div>
@@ -94,7 +109,7 @@
     <form class="telegram-form reveal" id="telegram-form" data-enhancement hidden>
       <p class="eyebrow">❧ A telegram to the technology desk</p>
       <h2 class="headline hl-lg">What shall we build?</h2>
-      <p class="body-text" style="font-size:14px">A few lines are all it takes to start a good conversation.</p>
+      <p class="body-text" style="font-size:14px">Tell me what you have in mind.</p>
       <div class="telegram-fields">
         <div><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" maxlength="80" autocomplete="name" required></div>
         <div><label for="enquiry-kind">I am looking for</label><select id="enquiry-kind" name="kind"><option>Frontend development</option><option>Technical writing</option><option>Product development</option><option>Web3 collaboration</option><option>Something else</option></select></div>
@@ -102,13 +117,13 @@
       <label for="enquiry-idea">A little about your idea</label>
       <textarea id="enquiry-idea" name="idea" rows="3" maxlength="1200" placeholder="The idea, the audience, and what you need a hand with…" required></textarea>
       <div class="edition-actions"><button class="edition-action primary" type="submit">Compose my enquiry →</button></div>
-      <p class="edition-note" style="margin-top:.7rem">Drafted here in your browser. You review it and send it from your own email app.</p>
+      <p class="edition-note" style="margin-top:.7rem">Review your draft. Send it from your email app.</p>
       <div class="telegram-preview" id="telegram-preview" hidden></div>
       <div class="edition-actions" id="enquiry-actions" hidden><a class="edition-action primary" id="open-enquiry" href="mailto:israeljackson854@gmail.com">Open in email app ↗</a><button class="edition-action" type="button" id="copy-enquiry">Copy draft</button></div>
     </form>
 
     <div class="pull-quote" style="margin-top:1.8rem;">
-      <p>"Thanks for reading this far. Now let's build something."</p>
+      <p>"Let’s make something worth putting in print."</p>
     </div>
 
   </main>
@@ -119,10 +134,7 @@
   </div>
 
   <hr class="footer-rule">
-  <div class="footer-text">
-    THE LAGOS CORRESPONDENT &nbsp;·&nbsp; ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; LAGOS, NIGERIA<br>
-    ❦ &nbsp; All rights reserved &nbsp; ❦ &nbsp; 2025 Edition
-  </div>
+  <div class="footer-text">ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; CODE, CRAFT &amp; THE WRITTEN WORD &nbsp;·&nbsp; LAGOS</div>
 
 </div>
 
@@ -138,7 +150,8 @@
 <div class="edition-toast" id="edition-status" role="status" aria-live="polite" hidden></div>
 <button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
 <script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Villa Corallina", "description": "Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.", "type": "Project · Design & development", "url": "portfolio.html#villa-corallina"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
-<script src="edition.js" defer></script>
+<script src="press-transition.js" defer></script>
+<script src="edition.js?v=2" defer></script>
 
 </body>
 </html>
