@@ -54,3 +54,7 @@ JavaScript syntax and Git whitespace checks passed, along with local-asset, uniq
 The landing page now starts with a plain frontend-engineering and technical-writing introduction, followed immediately by four colour project previews. Three previews link straight to the live work; Vistacraft links to its existing preview-only project entry. The biography and Sunday Supplement remain optional disclosures below the work.
 
 All pages use Home / Work / Writing / Contact navigation. Decorative datelines, page banners, subtitle, scrolling availability ticker, and click ripples were removed. Search and reader preferences sit at the bottom. Normal visits and navigation no longer run the newspaper curtain or delay links; the original opening is available only through Reader settings → Replay opening. Subtle project hover feedback and reduced-motion support remain.
+
+## Introduction restored
+
+The front-page introduction again uses the original Builder / Writer / Lagos-made headline, portrait, experience figures, and CV link. A single sentence identifies Israel as a frontend engineer and technical writer in Lagos, with a short optional biography. Two selected projects follow the introduction. The quieter navigation and optional newspaper replay remain.
