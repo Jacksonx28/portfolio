@@ -4,16 +4,16 @@ Israel Olanrewaju Amoo’s newspaper portfolio. Static HTML, CSS, and browser Ja
 
 ## Fresh off the press
 
-Two printed sheets open at their centre crease to reveal the portfolio. The first visit opens automatically; internal page navigation uses the same paper language. Reader settings include a replay with an explicit Unfold action. Escape and Skip cancel the opening, motion preferences are respected, and timed fallbacks release the page if an enhancement fails.
+Two printed sheets open at their centre crease to reveal the portfolio. The opening is an optional replay under Reader settings, with an explicit Unfold action. Normal visits and page navigation show the work immediately. Escape and Skip cancel the opening, motion preferences are respected, and timed fallbacks release the page if an enhancement fails.
 
-The front page introduces Israel in one short paragraph, with the fuller biography behind **Behind the byline**. Two selected builds appear as paper clippings; the Printing Room and Lagos archive sit inside the optional **Sunday Supplement**. Project cards use short captions with the fuller description available in Project notes. Writing and contact copy are also shorter.
+The front page introduces Israel in two short lines, with the biography under **About Israel** below four project previews; the Printing Room and Lagos archive sit inside the optional **Sunday Supplement**. Project cards use short captions with the fuller description available in Project notes. Writing and contact copy are also shorter.
 
-`press-transition.js` owns the opening and navigation; `frontpage.css` supplies the concise layout and paper treatment. Both extend the original buildless site. Four locally hosted WebP screenshots show Blackbell, Vistacraft, Figure234, and Doodlemon. The screenshots total approximately 159 kB. The remaining projects keep illustrated posters; the Degen Lifestyles host returned a 522 error during this review.
+`press-transition.js` owns the optional opening and folded-section deep links; `frontpage.css` supplies the concise layout and paper treatment. Both extend the original buildless site. Four locally hosted WebP screenshots show Blackbell, Vistacraft, Figure234, and Doodlemon. The screenshots total approximately 159 kB. The remaining projects keep illustrated posters; the Degen Lifestyles host returned a 522 error during this review.
 
 ## The reading room
 
-- Newspaper opening, section stamps, reading progress, and ink feedback. Motion can be switched off and respects reduced-motion preferences.
-- A searchable edition index, available from the toolbar, `/`, or Ctrl/⌘ K.
+- Optional newspaper replay and subtle project hover feedback. Motion can be switched off and respects reduced-motion preferences.
+- A searchable edition index, available from the footer, `/`, or Ctrl/⌘ K.
 - Project filters, project sheets, and live previews loaded on request. External hosting can restrict previews; existing Visit Site links remain available.
 - Writing filters and a reading list saved in the visitor’s browser. Storage failures fall back to the current visit.
 - A printing room that previews a custom headline and exports a 1080 × 1350 PNG.
