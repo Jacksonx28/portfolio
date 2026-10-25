@@ -104,29 +104,9 @@
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
     const url = new URL(link.href, location.href);
     if (url.origin === location.origin && url.pathname === location.pathname && url.hash) revealAnchor(url.hash);
-    if (url.origin !== location.origin || url.pathname === location.pathname || !/\/(index|portfolio|writing|notices)\.html$/.test(url.pathname) || !permitted()) return;
-    event.preventDefault();
-    if (navigating) return;
-    navigating = true;
-    returnFocus = undefined;
-    stage('covering');
-    // Navigation is independent of storage and animation events.
-    later(() => {
-      try { sessionStorage.setItem('ij-press-arrive', '1'); } catch { /* Optional. */ }
-      location.assign(url.href);
-    }, 330);
+
   });
 
-  let arriving = false;
-  let firstVisit = false;
-  try {
-    arriving = sessionStorage.getItem('ij-press-arrive') === '1';
-    sessionStorage.removeItem('ij-press-arrive');
-    firstVisit = sessionStorage.getItem('ij-press-seen-v1') !== '1';
-    sessionStorage.setItem('ij-press-seen-v1', '1');
-  } catch { firstVisit = root.dataset.press === 'intro'; }
-  if (permitted() && (arriving || (firstVisit && !location.hash))) {
-    stage(arriving ? 'closed' : 'intro');
-    later(() => open(), arriving ? 60 : 240);
-  } else finish();
+  // Normal visits and navigation never hide or delay the work.
+  finish();
 })();

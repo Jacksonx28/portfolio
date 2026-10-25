@@ -135,3 +135,63 @@ html.press-entering .newspaper { animation: edition-emerge 950ms .1s both; }
 @media (prefers-reduced-motion: reduce) { .paper-curtain, .paper-skip, .paper-unfold { display: none !important; } }
 html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display: none !important; }
 @media print { .paper-curtain,.paper-skip,.paper-unfold,.edition-preferences { display: none !important; } .sunday-supplement:not([open]) { display: none; } .project-shot,.dispatch-image img { filter: none; } }
+
+/* Work first: a short introduction, real previews, and quiet navigation. */
+.masthead { padding-top: .8rem; }
+.masthead-top { margin-bottom: .35rem; }
+.paper-title { font-size: clamp(29px,5vw,49px); margin: .2rem 0 .6rem; }
+.masthead-nav { margin-top: .5rem; padding-block: .6rem; gap: 1.5rem; }
+.masthead-nav a { font-size: 11px; padding: .4rem .3rem; }
+.reading-progress { display: none; }
+.edition-tools { justify-content: flex-end; margin: 1rem 2rem 0; border: 0; }
+.preferences-panel { top: auto; bottom: 100%; }
+.edition-tools button, .edition-preferences > summary { font-size: 10px; }
+.edition-preferences > summary { min-height: 44px; display: flex; align-items: center; }
+.js-motion .reveal:not(.revealed) { opacity: 1; transform: none; }
+.js-motion .section-head.revealed .section-head-label { animation: none; }
+.work-intro { padding: 1.6rem 0 1.3rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+.work-intro .eyebrow { font: 10px/1.7 'Special Elite',monospace; letter-spacing: .035em; margin: 0 0 .65rem; }
+.work-intro h2 { font: 700 clamp(30px,4.1vw,45px)/1.1 'Playfair Display',serif; letter-spacing: -.035em; margin: 0; }
+.work-intro h2 em { color: var(--red-ink); font-weight: 400; }
+.work-contact { font: 11px/1.6 'Special Elite',monospace; color: var(--ink); white-space: nowrap; padding: .7rem 0; text-underline-offset: 5px; }
+.work-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .7rem 0 1rem; border-top: 3px double var(--rule); }
+.work-section-heading h2 { margin: 0; font: 10px 'Special Elite',monospace; text-transform: uppercase; letter-spacing: .08em; }
+.work-section-heading a { color: var(--ink); font: 11px 'Special Elite',monospace; text-decoration: none; padding-block: .35rem; }
+.selected-dispatches { padding: 0 0 1.4rem; }
+.dispatch-grid { gap: 1.8rem 1.4rem; }
+.dispatch-image { aspect-ratio: 1.65; box-shadow: none; }
+.dispatch-image img { filter: none; }
+.dispatch:hover .dispatch-image, .dispatch:focus-visible .dispatch-image { transform: translateY(-3px); box-shadow: 3px 4px 0 var(--paper-aged); }
+.dispatch:hover img { transform: scale(1.015); }
+.dispatch figcaption { padding-top: .7rem; }
+.dispatch-name { font-size: 21px; }
+.dispatch-meta { font-size: 10px; text-transform: none; letter-spacing: 0; margin-top: .2rem; }
+.about-correspondent { margin: 0; padding: .4rem 0; border-top: 1px solid var(--rule); }
+.about-correspondent > summary { font-size: 11px; color: var(--ink); }
+.about-inner { display: flex; gap: 1.1rem; align-items: flex-start; max-width: 640px; padding: .6rem 0 1.3rem; }
+.about-inner > img { object-fit: cover; filter: grayscale(1) sepia(.25); flex-shrink: 0; }
+.about-inner p { font: 14px/1.8 'Lora',serif; margin: 0 0 .8rem; }
+.about-links { display: flex; gap: 1.5rem; flex-wrap: wrap; font: 11px 'Special Elite',monospace; }
+.about-links a { color: var(--ink); text-underline-offset: 4px; }
+.sunday-supplement { border-block: 1px solid var(--rule); margin-bottom: 0; }
+.sunday-supplement > summary { padding: .8rem 0; }
+.supplement-name { font: 11px 'Special Elite',monospace; }
+.supplement-caption { display: none; }
+.supplement-toggle { border: 0; font-size: 18px; }
+.footer-text { letter-spacing: .06em; }
+@media (max-width:600px) {
+  .masthead-nav { gap: .8rem; flex-wrap: nowrap; justify-content: space-between; }
+  .masthead-nav a { font-size: 11px; padding: .55rem .25rem; }
+  .masthead-top { font-size: 9px; }
+  .work-intro { display: block; padding: 1.2rem 0 1rem; }
+  .work-intro .eyebrow { font-size: 9px; max-width: 310px; }
+  .work-intro h2 { font-size: clamp(29px,8vw,42px); }
+  .work-contact { display: inline-block; margin-top: .65rem; padding: .4rem 0; }
+  .dispatch-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .dispatch-image { aspect-ratio: 1.65; }
+  .dispatch-name { font-size: 22px; }
+  .dispatch-meta { font-size: 10px; }
+  .about-inner > img { width: 70px; height: 85px; }
+  .about-inner { gap: .8rem; }
+  .edition-tools { margin-inline: 1rem; }
+}

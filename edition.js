@@ -212,15 +212,7 @@
   document.addEventListener('click', event => {
     const control = event.target.closest('a, button');
     if (control) pressSound();
-    if (control && motionEnabled() && matchMedia('(pointer: fine)').matches && event.detail > 0) {
-      const ring = make('span', 'ink-ripple');
-      ring.setAttribute('aria-hidden', 'true');
-      ring.style.left = `${event.clientX}px`;
-      ring.style.top = `${event.clientY}px`;
-      document.body.append(ring);
-      ring.addEventListener('animationend', () => ring.remove(), { once: true });
-      setTimeout(() => ring.remove(), 700);
-    }
+
 
   });
 
