@@ -17,21 +17,25 @@
 <meta name="twitter:title" content="The Lagos Correspondent — Israel Olanrewaju Amoo">
 <meta name="twitter:description" content="Frontend Engineer, Technical Writer & Product Builder from Lagos, Nigeria.">
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+<script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="interactions.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
 <div class="scan-line"></div>
 <div class="newspaper">
 
   <header class="masthead">
     <div class="masthead-top">
       <span class="left-text">Est. 1902 &nbsp;·&nbsp; Lagos, Nigeria</span>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light or dark mode">☀ / ☽ Mode</button>
+      <button class="theme-toggle" aria-label="Toggle light or dark mode">☀ / ☽ Mode</button>
     </div>
     <h1 class="paper-title"><a href="index.html">The Lagos Correspondent</a></h1>
     <p class="paper-subtitle">❦ &nbsp; Code, Craft &amp; the Written Word &nbsp; ❦</p>
-    <nav class="masthead-nav">
-      <a href="index.html" class="current">Front Page</a>
+    <nav class="masthead-nav" aria-label="Main navigation">
+      <a href="index.html" class="current" aria-current="page">Front Page</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="writing.html">Writing</a>
       <a href="notices.html">Notices</a>
@@ -47,13 +51,20 @@
   <div class="breaking-strip">
     <span class="breaking-label">BREAKING</span>
     <div class="breaking-ticker-wrap">
-      <span class="breaking-ticker" id="breakingTicker"></span>
+      <span class="breaking-ticker" id="breakingTicker">Currently available for Frontend Engineering opportunities.</span>
     </div>
+    <button class="ticker-pause" type="button" data-toggle-ticker aria-pressed="false" data-enhancement hidden>Pause</button>
   </div>
 
   <div class="edition-banner">✦ &nbsp; Page One: The Front Page &nbsp; ✦</div>
 
-  <div class="content-wrapper">
+
+  <div class="edition-tools" aria-label="Reading room controls" data-enhancement hidden>
+    <div class="edition-tools-group"><span class="edition-seal">❧ The reading room</span><span>Lagos <time class="edition-clock"></time></span></div>
+    <div class="edition-tools-group"><button type="button" data-open-index aria-haspopup="dialog" aria-controls="edition-index">Edition index <kbd>/</kbd></button><button type="button" data-toggle-motion aria-pressed="true">Motion: on</button><button type="button" data-toggle-sound aria-pressed="false">Sound: off</button></div>
+  </div>
+
+  <main class="content-wrapper" id="main-content">
 
     <div class="section-head">
       <div class="section-head-rule"></div>
@@ -66,6 +77,7 @@
         <p class="eyebrow">❧ Feature Profile</p>
         <h2 class="headline hl-xl">Frontend Engineer. Technical Writer. Product Builder.</h2>
         <p class="deck">I'm Israel Olanrewaju Amoo, a Computer Science graduate from Lagos, Nigeria, passionate about building digital products that are fast, intuitive, and solve real problems.</p>
+        <div class="front-page-links"><a href="portfolio.html">Explore my work →</a><a href="#press-room">Visit the printing room ↓</a></div>
         <div class="byline">Feature Profile &nbsp;·&nbsp; Technology Desk &nbsp;·&nbsp; 2025</div>
 
         <div class="body-text">
@@ -169,7 +181,67 @@
       </div>
     </div>
 
-  </div>
+
+    <section class="reading-room reveal" id="press-room" aria-labelledby="press-room-heading">
+      <div class="section-head"><div class="section-head-rule"></div><h2 class="section-head-label" id="press-room-heading">The Printing Room</h2><div class="section-head-rule"></div></div>
+      <p class="room-deck">You have read the paper. Now make the headline.</p>
+      <div class="press-grid">
+        <div class="press-copy">
+          <p class="eyebrow">❧ A little ink. A little mischief.</p>
+          <h3 class="headline hl-lg">Tomorrow’s front page.<br>Your words.</h3>
+          <p class="body-text">A big idea, a personal victory, or something the world ought to know. Set it in type and take a little piece of this newspaper with you.</p>
+          <form class="press-form" id="press-form" data-enhancement hidden>
+            <label for="press-headline">Your headline <span class="edition-note">(76 characters max)</span></label>
+            <input id="press-headline" name="headline" maxlength="76" placeholder="Good things are being built in Lagos." autocomplete="off">
+            <label for="press-byline">Your byline <span class="edition-note">(optional)</span></label>
+            <input id="press-byline" name="byline" maxlength="48" placeholder="Filed by a curious reader" autocomplete="off">
+            <div class="edition-actions"><button class="edition-action primary" type="submit" id="print-headline">↓ Print my edition</button><button class="edition-action" type="button" id="shuffle-headline">Surprise me ↻</button></div>
+            <p class="edition-note" style="margin-top:.6rem">Yours as a PNG. A fictional front page, made right here in your browser.</p>
+          </form>
+          <noscript><p class="edition-note">Enable JavaScript to typeset and download your own edition.</p></noscript>
+        </div>
+        <div class="press-proof" id="press-proof" role="img" aria-label="Live preview of your fictional front page">
+          <div class="proof-masthead">The Lagos Correspondent</div>
+          <div class="proof-date"><span>The reader’s edition</span><span>Lagos · One of one</span></div>
+          <p class="eyebrow" style="margin-top:.8rem">Extra! Extra!</p>
+          <div class="proof-headline" id="proof-headline">Good things are being built in Lagos.</div>
+          <p class="proof-deck" id="proof-byline">Filed by a curious reader</p>
+          <div class="proof-lines" aria-hidden="true"></div>
+          <span class="proof-stamp">Hot off the press</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="archive-section reveal" id="lagos-archive" aria-labelledby="archive-heading">
+      <div class="section-head"><div class="section-head-rule"></div><h2 class="section-head-label" id="archive-heading">Lagos, Before the Internet</h2><div class="section-head-rule"></div></div>
+      <p class="room-deck">A small detour through the city behind the byline. Choose a year.</p>
+      <div class="archive-layout">
+        <div class="archive-years" role="group" aria-label="Choose an archive year">
+          <button type="button" data-year="1926" aria-pressed="true" aria-controls="archive-1926">1926</button>
+          <button type="button" data-year="1960" aria-pressed="false" aria-controls="archive-1960">1960</button>
+          <span class="edition-note">Two moments.<br>One restless city.</span>
+        </div>
+        <div class="archive-panel" id="archive-1926" data-archive-panel="1926">
+          <span class="archive-number" aria-hidden="true">1926</span>
+          <p class="eyebrow">❧ From the newspaper archive</p>
+          <h3 class="headline hl-lg">A city puts it in print.</h3>
+          <p class="body-text">The Nigerian Daily Times began publication in Lagos on 1 June 1926. Its newspaper record is preserved in the Library of Congress catalogue. Long before a link could travel around the world, the city’s stories travelled in ink.</p>
+          <div class="edition-actions"><a class="edition-action" href="https://www.loc.gov/item/sn94021149/" target="_blank" rel="noopener noreferrer">Explore the newspaper record ↗</a></div>
+          <p class="edition-note" style="margin-top:.7rem">Source: Library of Congress · Historical summary, not an original newspaper clipping.</p>
+        </div>
+        <div class="archive-panel" id="archive-1960" data-archive-panel="1960" hidden>
+          <p class="eyebrow">❧ From the newsreel archive · 1960</p>
+          <h3 class="headline hl-lg">Lagos witnesses a new chapter.</h3>
+          <p class="body-text">Nigeria became independent on 1 October 1960. British Pathé’s archive includes a newsreel of the independence celebrations in Lagos, a moving glimpse of the city at a turning point.</p>
+          <a class="film-window" href="https://www.britishpathe.com/asset/197943/" target="_blank" rel="noopener noreferrer" aria-label="Watch the 1960 Nigeria independence newsreel at British Pathé" style="text-decoration:none">
+            <div class="film-title"><strong>▶ Lagos, 1960</strong><span>Independence · Original archive newsreel ↗</span></div>
+          </a>
+          <p class="edition-note">Watch at British Pathé. Archive footage and original commentary belong to their respective owners. This title card is an original illustration.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <div class="page-flip reveal">
     <span></span>
@@ -179,53 +251,25 @@
   <hr class="footer-rule">
   <div class="footer-text">
     THE LAGOS CORRESPONDENT &nbsp;·&nbsp; ISRAEL OLANREWAJU AMOO &nbsp;·&nbsp; LAGOS, NIGERIA<br>
-    Morning Edition &nbsp;·&nbsp; Vol. XXIV, No. 7 &nbsp;·&nbsp; Editorial Notes: All works published herein are original.<br>
+    Morning Edition &nbsp;·&nbsp; Vol. XXIV, No. 7 &nbsp;·&nbsp; Original portfolio work. Historical sources credited above.<br>
     ❦ &nbsp; All rights reserved &nbsp;·&nbsp; Printed in Lagos &nbsp;·&nbsp; 2025 Edition &nbsp; ❦
   </div>
 
 </div>
-<script>
-function toggleTheme(){
-  const h=document.documentElement,t=h.getAttribute('data-theme')==='light'?'dark':'light';
-  h.setAttribute('data-theme',t); localStorage.setItem('ij-theme',t);
-}
-(function(){
-  const s=localStorage.getItem('ij-theme');
-  if(s) document.documentElement.setAttribute('data-theme',s);
-  else if(window.matchMedia('(prefers-color-scheme:dark)').matches)
-    document.documentElement.setAttribute('data-theme','dark');
-})();
 
-// Scroll reveal
-const reveals=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target);}});
-},{threshold:0.08});
-reveals.forEach(r=>io.observe(r));
 
-// Breaking ticker
-const roles=[
-  'Currently available for Frontend Engineering opportunities.',
-  'Currently available for Technical Writing engagements.',
-  'Currently available for Product Development roles.',
-  'Currently available for Web3 collaborations.',
-  'Currently available for Software Engineering opportunities.',
-];
-const ticker=document.getElementById('breakingTicker');
-let ri=0;
-function nextRole(){
-  ticker.classList.remove('ticker-in');
-  ticker.classList.add('ticker-out');
-  setTimeout(()=>{
-    ri=(ri+1)%roles.length;
-    ticker.textContent=roles[ri];
-    ticker.classList.remove('ticker-out');
-    ticker.classList.add('ticker-in');
-  },380);
-}
-ticker.textContent=roles[0];
-ticker.classList.add('ticker-in');
-setInterval(nextRole,3500);
-</script>
+<dialog class="edition-dialog" id="edition-index" aria-labelledby="edition-index-title">
+  <div class="dialog-head"><div><p class="eyebrow">❧ Find your next story</p><h2 id="edition-index-title">The Edition Index</h2></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close edition index">✕</button></div>
+  <label class="index-search-label" for="edition-search">Search projects, stories, or a page</label>
+  <input class="edition-search" id="edition-search" type="search" placeholder="Try “Web3”, “restaurant”, or “Bitcoin”…" autocomplete="off">
+  <p id="index-count" class="edition-note" role="status" aria-live="polite"></p>
+  <ul class="index-results" id="index-results" aria-label="Search results"></ul>
+  <p class="edition-note">Press Esc to return to your page. Open this index with / or Ctrl / ⌘ K.</p>
+</dialog>
+<div class="edition-toast" id="edition-status" role="status" aria-live="polite" hidden></div>
+<button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
+<script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Villa Corallina", "description": "Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.", "type": "Project · Design & development", "url": "portfolio.html#villa-corallina"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
+<script src="edition.js" defer></script>
+
 </body>
 </html>
