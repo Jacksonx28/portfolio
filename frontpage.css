@@ -205,7 +205,7 @@ html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display:
 .callout-action span { display: inline-block; transition: transform .2s; }
 .press-callout:hover .callout-action span { transform: translate(2px,2px); }
 .press-callout:focus-visible { outline: 3px solid var(--red-ink); outline-offset: -5px; }
-#press-room, #lagos-archive, .site-card, #main-content { scroll-margin-top: 110px; }
+#press-room, #lagos-archive, #selected-work, .site-card, #main-content { scroll-margin-top: 110px; }
 .reading-room { border-top: 3px double var(--rule); padding-top: 1.4rem; }
 @media (min-width: 861px) {
   .paper-title { font-size: 58px; }
@@ -226,11 +226,19 @@ html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display:
   .edition-tools button, .edition-preferences > summary { font-size: 12px; }
 }
 @media (max-width:600px) {
-  .press-callout { padding: .65rem 1rem; gap: .65rem; }
+  .press-callout { position: static; padding: .65rem 1rem; gap: .65rem; }
   .callout-extra { font-size: 14px; padding: .35rem .45rem; }
   .callout-title { font-size: 15px; }
   .callout-caption { display: none; }
   .callout-action { font-size: 11px; }
-  #press-room, #lagos-archive, .site-card, #main-content { scroll-margin-top: 85px; }
+  #press-room, #lagos-archive, #selected-work, .site-card, #main-content { scroll-margin-top: 1rem; }
 }
 @media print { .press-callout { display: none; } }
+
+/* Featured sites render live, with a separate clear link to the full website. */
+.live-preview { position: relative; }
+.live-preview iframe { position: absolute; inset: 0; width: 300%; height: 300%; border: 0; transform: scale(.333333); transform-origin: top left; background: white; }
+.live-dispatch-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: .7rem; color: var(--ink); text-decoration: none; }
+.live-dispatch-link:focus-visible { outline: 2px solid var(--red-ink); outline-offset: 4px; }
+.site-card:is(#community-pulse,#vistacraft-homes) iframe { z-index: 2; pointer-events: auto; }
+.site-card#vistacraft-homes .project-shot { z-index: 0; }
