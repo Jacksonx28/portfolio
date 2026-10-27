@@ -62,3 +62,7 @@ The front-page introduction again uses the original Builder / Writer / Lagos-mad
 ## Visible Printing Room and larger desktop type
 
 A sticky newspaper Extra below the masthead invites visitors to make their own front page, from every page. It links directly to the Printing Room, which is visible without opening a disclosure. The historical Lagos archive keeps a separate optional disclosure. Desktop typography is larger across the introduction, navigation, project captions, articles and forms; narrow-screen type sizes remain unchanged.
+
+## Featured project update
+
+Community Pulse and Vistacraft lead the home page with live embedded previews and full-site links. Both also load live previews automatically in Work. Community Pulse is the first Work entry, Villa Corallina has been removed, and the global project index reflects the six current projects.

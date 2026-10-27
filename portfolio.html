@@ -20,7 +20,7 @@
 <script src="theme.js?v=3"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="interactions.css">
-<link rel="stylesheet" href="frontpage.css?v=5">
+<link rel="stylesheet" href="frontpage.css?v=6">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -74,6 +74,40 @@
     <div class="filter-bar" id="project-filters" role="group" aria-label="Filter projects" data-enhancement hidden><button type="button" data-filter="all" aria-pressed="true">All work</button><button type="button" data-filter="hospitality" aria-pressed="false">Hospitality</button><button type="button" data-filter="property" aria-pressed="false">Property</button><button type="button" data-filter="commerce" aria-pressed="false">Commerce</button><button type="button" data-filter="web3" aria-pressed="false">Web3</button><button type="button" data-filter="play" aria-pressed="false">Play</button><span class="filter-count" id="project-count" role="status">6 projects</span></div>
     <div class="site-cards-grid">
 
+      <div class="site-card" id="community-pulse" data-description="A Web3 collaboration platform connecting communities, projects and collaboration managers." data-category="web3">
+        <div class="card-chrome">
+          <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
+          <div class="chrome-url">joincommunitypulse.app</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">CP</div><div class="preview-poster-name">Community Pulse</div><div class="preview-poster-note">Live Preview</div></div>
+          <iframe src="https://joincommunitypulse.app/" class="loaded" title="Community Pulse" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="card-role">Design / Build</span>
+          <div class="card-title">Community Pulse</div>
+          <div class="card-desc">Web3 collaborations, in one place.</div>
+          <div class="card-actions"><div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Project notes +</button></div><a class="card-link" href="https://joincommunitypulse.app/" target="_blank" rel="noopener">Visit Site →</a></div>
+        </div>
+      </div>
+
+      <div class="site-card" id="vistacraft-homes" data-description="Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision." data-category="property">
+        <div class="card-chrome">
+          <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
+          <div class="chrome-url">Vistacraft Homes</div>
+        </div>
+        <div class="card-preview"><img class="project-shot" src="assets/vistacraft.webp" alt="Vistacraft Homes website preview" width="1000" height="687" loading="lazy">
+          <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">V</div><div class="preview-poster-name">Vistacraft Homes</div><div class="preview-poster-note">Preview</div></div>
+          <iframe src="https://tiny-cheesecake-a3c394.netlify.app/" class="loaded" title="Vistacraft Homes" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="card-role">Design / Build</span>
+          <div class="card-title">Vistacraft Homes</div>
+          <div class="card-desc">A new address for luxury living.</div>
+          <div class="card-actions"><div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Project notes +</button></div><a class="card-link" href="https://tiny-cheesecake-a3c394.netlify.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a></div>
+        </div>
+      </div>
+
       <div class="site-card" id="blackbell-nigeria" data-description="Fine dining restaurant — full menu presentation, clean booking experience." data-category="hospitality">
         <div class="card-chrome">
           <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
@@ -88,40 +122,6 @@
           <div class="card-title">Blackbell Nigeria</div>
           <div class="card-desc">Fine dining, made digital.</div>
           <div class="card-actions"><div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Project notes +</button></div><a class="card-link" href="https://jacksonx28.github.io/Blackbellngn/" target="_blank" rel="noopener">Visit Site →</a></div>
-        </div>
-      </div>
-
-      <div class="site-card" id="vistacraft-homes" data-description="Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision." data-category="property">
-        <div class="card-chrome">
-          <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
-          <div class="chrome-url">Vistacraft Homes</div>
-        </div>
-        <div class="card-preview"><img class="project-shot" src="assets/vistacraft.webp" alt="Vistacraft Homes website preview" width="1000" height="687" loading="lazy">
-          <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">V</div><div class="preview-poster-name">Vistacraft Homes</div><div class="preview-poster-note">Preview</div></div>
-          <iframe data-src="https://tiny-cheesecake-a3c394.netlify.app/" title="Vistacraft Homes" loading="lazy" sandbox="allow-scripts allow-same-origin" style="pointer-events:none;"></iframe>
-        </div>
-        <div class="card-body">
-          <span class="card-role">Design / Build</span>
-          <div class="card-title">Vistacraft Homes</div>
-          <div class="card-desc">A new address for luxury living.</div>
-          <div class="card-actions"><div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Project notes +</button></div><span class="card-link" style="color:var(--rule-light); border-color:var(--rule-light); cursor:default; opacity:0.6;">Preview Only</span></div>
-        </div>
-      </div>
-
-      <div class="site-card" id="villa-corallina" data-description="Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book." data-category="hospitality">
-        <div class="card-chrome">
-          <div class="chrome-dots"><div class="chrome-dot cd-r"></div><div class="chrome-dot cd-y"></div><div class="chrome-dot cd-g"></div></div>
-          <div class="chrome-url">jacksonx28.github.io/villa-corallina</div>
-        </div>
-        <div class="card-preview">
-          <div class="preview-poster" aria-hidden="true"><div class="preview-poster-mono">VC</div><div class="preview-poster-name">Villa Corallina</div><div class="preview-poster-note">Live Preview</div></div>
-          <iframe data-src="https://jacksonx28.github.io/villa-corallina-prototype/" title="Villa Corallina" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
-        <div class="card-body">
-          <span class="card-role">Design / Build</span>
-          <div class="card-title">Villa Corallina</div>
-          <div class="card-desc">A private island, one click away.</div>
-          <div class="card-actions"><div class="project-note" data-enhancement hidden><button type="button" data-project-sheet aria-haspopup="dialog" aria-controls="project-sheet">Project notes +</button></div><a class="card-link" href="https://jacksonx28.github.io/villa-corallina-prototype/" target="_blank" rel="noopener">Visit Site →</a></div>
         </div>
       </div>
 
@@ -206,7 +206,7 @@
 </dialog>
 <div class="edition-toast" id="edition-status" role="status" aria-live="polite" hidden></div>
 <button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
-<script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Villa Corallina", "description": "Private island sanctuary in Moorea, French Polynesia — five-star exclusivity, built to book.", "type": "Project · Design & development", "url": "portfolio.html#villa-corallina"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
+<script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Community Pulse", "description": "Web3 collaboration platform for communities, projects and collaboration managers.", "type": "Project · Design & development", "url": "portfolio.html#community-pulse"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
 <script src="press-transition.js?v=3" defer></script>
 <script src="edition.js?v=3" defer></script>
 
