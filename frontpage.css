@@ -242,3 +242,6 @@ html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display:
 .live-dispatch-link:focus-visible { outline: 2px solid var(--red-ink); outline-offset: 4px; }
 .site-card:is(#community-pulse,#vistacraft-homes) iframe { z-index: 2; pointer-events: auto; }
 .site-card#vistacraft-homes .project-shot { z-index: 0; }
+
+/* Vector arrows retain their ink colour and shape on iOS and desktop. */
+.dispatch-arrow svg { display: block; width: 1em; height: 1em; }
