@@ -66,3 +66,5 @@ A sticky newspaper Extra below the masthead invites visitors to make their own f
 ## Featured project update
 
 Community Pulse and Vistacraft lead the home page with live embedded previews and full-site links. Both also load live previews automatically in Work. Community Pulse is the first Work entry, Villa Corallina has been removed, and the global project index reflects the six current projects.
+
+The Printing Room callout now appears only on Home. On narrow screens it stays in normal document flow rather than floating over content.

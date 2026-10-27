@@ -226,12 +226,12 @@ html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display:
   .edition-tools button, .edition-preferences > summary { font-size: 12px; }
 }
 @media (max-width:600px) {
-  .press-callout { padding: .65rem 1rem; gap: .65rem; }
+  .press-callout { position: static; padding: .65rem 1rem; gap: .65rem; }
   .callout-extra { font-size: 14px; padding: .35rem .45rem; }
   .callout-title { font-size: 15px; }
   .callout-caption { display: none; }
   .callout-action { font-size: 11px; }
-  #press-room, #lagos-archive, #selected-work, .site-card, #main-content { scroll-margin-top: 85px; }
+  #press-room, #lagos-archive, #selected-work, .site-card, #main-content { scroll-margin-top: 1rem; }
 }
 @media print { .press-callout { display: none; } }
 
