@@ -58,3 +58,7 @@ All pages use Home / Work / Writing / Contact navigation. Decorative datelines, 
 ## Introduction restored
 
 The front-page introduction again uses the original Builder / Writer / Lagos-made headline, portrait, experience figures, and CV link. A single sentence identifies Israel as a frontend engineer and technical writer in Lagos, with a short optional biography. Two selected projects follow the introduction. The quieter navigation and optional newspaper replay remain.
+
+## Visible Printing Room and larger desktop type
+
+A sticky newspaper Extra below the masthead invites visitors to make their own front page, from every page. It links directly to the Printing Room, which is visible without opening a disclosure. The historical Lagos archive keeps a separate optional disclosure. Desktop typography is larger across the introduction, navigation, project captions, articles and forms; narrow-screen type sizes remain unchanged.

@@ -195,3 +195,42 @@ html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display:
   .restored-intro .portrait-circle { height: 100px; }
   .restored-intro .portrait-caption { font-size: 10px; }
 }
+
+/* An invitation in the first screen, pinned like a newspaper extra. */
+.press-callout { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; gap: 1rem; padding: .8rem 2rem; background: var(--paper-dark); color: var(--ink); border-bottom: 3px double var(--rule); text-decoration: none; box-shadow: 0 3px 8px var(--shadow); }
+.callout-extra { flex-shrink: 0; background: var(--red-ink); color: var(--paper); font: 700 17px 'Playfair Display',serif; font-style: italic; padding: .45rem .7rem; transform: rotate(-4deg); }
+.callout-title { font: 700 18px/1.3 'Playfair Display',serif; }
+.callout-caption { display: block; margin-top: .2rem; font: 11px/1.5 'Special Elite',monospace; color: var(--sepia); }
+.callout-action { margin-left: auto; flex-shrink: 0; font: 12px 'Special Elite',monospace; border-bottom: 1px solid var(--red-ink); padding-block: .5rem; }
+.callout-action span { display: inline-block; transition: transform .2s; }
+.press-callout:hover .callout-action span { transform: translate(2px,2px); }
+.press-callout:focus-visible { outline: 3px solid var(--red-ink); outline-offset: -5px; }
+#press-room, #lagos-archive, .site-card, #main-content { scroll-margin-top: 110px; }
+.reading-room { border-top: 3px double var(--rule); padding-top: 1.4rem; }
+@media (min-width: 861px) {
+  .paper-title { font-size: 58px; }
+  .masthead-top, .theme-toggle { font-size: 12px; }
+  .masthead-nav a { font-size: 14px; }
+  .restored-intro .lead-headline { font-size: 68px; }
+  .restored-intro .deck { font-size: 20px; max-width: 460px; }
+  .eyebrow, .front-lead .front-page-links a, .byline-fold summary, .byline-meta, .front-byline .portrait-caption, .front-lead .stat-label { font-size: 12px; }
+  .byline-fold .body-text { font-size: 17px; }
+  .front-lead .stat-num { font-size: 32px; }
+  .work-section-heading h2, .work-section-heading a, .section-head-label, .supplement-name { font-size: 14px; }
+  .dispatch-name, .site-card .card-title { font-size: 27px; }
+  .dispatch-meta, .site-card .card-role, .site-card .card-link, .project-note button, .filter-bar button { font-size: 13px; }
+  .site-card .card-desc, .body-text, .writing-list li { font-size: 17px; }
+  .article-entry .body-text { font-size: 17px !important; }
+  .article-meta, .edition-note, .press-form label, .telegram-fields label, .edition-action { font-size: 12px; }
+  .press-form input, .telegram-fields input, .telegram-fields select, .telegram-fields textarea { font-size: 16px; }
+  .edition-tools button, .edition-preferences > summary { font-size: 12px; }
+}
+@media (max-width:600px) {
+  .press-callout { padding: .65rem 1rem; gap: .65rem; }
+  .callout-extra { font-size: 14px; padding: .35rem .45rem; }
+  .callout-title { font-size: 15px; }
+  .callout-caption { display: none; }
+  .callout-action { font-size: 11px; }
+  #press-room, #lagos-archive, .site-card, #main-content { scroll-margin-top: 85px; }
+}
+@media print { .press-callout { display: none; } }
