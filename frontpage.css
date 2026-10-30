@@ -245,3 +245,51 @@ html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display:
 
 /* Vector arrows retain their ink colour and shape on iOS and desktop. */
 .dispatch-arrow svg { display: block; width: 1em; height: 1em; }
+
+/* Paper mechanics, adapted to the existing newspaper rather than a UI kit. */
+.press-machine { min-width: 0; padding: .7rem; border: 1px solid var(--rule); background: var(--paper-aged); box-shadow: 4px 5px 0 var(--paper-dark); }
+.press-chassis { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 1rem 1.2rem; color: var(--paper); background: var(--ink); border: 3px double var(--paper-aged); }
+.press-chassis::after { content: ''; position: absolute; left: 5%; right: 5%; bottom: 4px; height: 6px; border-radius: 6px; background: #050402; box-shadow: 0 1px 0 #fff3; }
+.press-maker { font: 9px/1.7 'Special Elite',monospace; text-transform: uppercase; letter-spacing: .1em; }
+.press-maker strong { font-weight: 400; color: #d0b483; }
+.press-lamp { width: 8px; height: 8px; border-radius: 50%; background: #c9b77f; box-shadow: 0 0 0 3px #c9b77f22; }
+.press-output { overflow: hidden; padding: 0 .65rem .8rem; }
+.press-machine .press-proof { margin: 0; transform: none; border-top: 0; box-shadow: 2px 3px 0 var(--rule-light); background: var(--paper); }
+.press-machine-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .55rem .25rem .1rem; font: 9px/1.6 'Special Elite',monospace; color: var(--sepia); }
+.press-machine-footer button { flex-shrink: 0; background: transparent; border: 0; border-bottom: 1px dotted var(--rule); padding: .4rem 0; color: var(--ink); font: inherit; cursor: pointer; }
+.press-machine-footer button:disabled { opacity: .5; cursor: wait; }
+.is-printing .press-chassis { animation: press-rattle 160ms linear infinite; }
+.is-printing .press-lamp { background: #c57b42; }
+@keyframes press-rattle { 0%,100% { transform: translateX(0); } 25% { transform: translateX(.5px); } 75% { transform: translateX(-.5px); } }
+.morph-dialog[open] { animation: none; transform-origin: center; }
+.morph-dialog .project-detail-text { font-size: 16px; }
+.archive-layout { grid-template-columns: 320px minmax(0,1fr); }
+.clipping-box { padding: 1.3rem .75rem; min-width: 0; align-self: center; }
+.clipping-tray { height: 240px; position: relative; perspective: 850px; }
+.clipping-tray[hidden] { display: none; }
+.archive-clipping { position: absolute; top: 12px; left: calc(50% - 77px); width: 154px; height: 202px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: .4rem; border: 1px solid var(--rule); padding: .7rem; color: var(--ink); background: var(--paper); box-shadow: 3px 5px 0 var(--paper-dark); cursor: pointer; font: 11px/1.4 'Lora',serif; transition: transform .35s,box-shadow .35s; }
+.clipping-news { transform: translateX(-61px) rotate(-10deg); }
+.clipping-film { transform: translateX(61px) rotate(9deg); }
+.archive-clipping:hover, .archive-clipping:focus-visible { z-index: 3; transform: translateY(-12px) rotate(0); box-shadow: 4px 9px 0 var(--paper-dark); }
+.archive-clipping strong { font: 900 35px/1 'Playfair Display',serif; letter-spacing: -.04em; }
+.clipping-kicker { font: 7px/1.6 'Special Elite',monospace; text-transform: uppercase; border-block: 1px solid var(--rule-light); padding: .25rem 0; width: 100%; }
+.clipping-illustration { display: block; width: 100%; height: 48px; }
+.clipping-news .clipping-illustration { background: repeating-linear-gradient(transparent 0 4px,var(--rule-light) 4px 5px); mask-image: repeating-linear-gradient(90deg,#000 0 29%,transparent 29% 35%); }
+.clipping-film .clipping-illustration { background: var(--ink); color: var(--paper); border-block: 3px dashed var(--paper-aged); display: grid; place-items: center; font-size: 18px; }
+.clipping-inspect { font: 8px 'Special Elite',monospace; color: var(--red-ink); }
+.clipping-lid { position: relative; z-index: 4; display: flex; width: 100%; align-items: center; gap: 1rem; padding: 1.2rem 1rem; text-align: left; background: var(--paper-dark); color: var(--ink); border: 3px double var(--rule); box-shadow: 4px 5px 0 var(--paper-aged); cursor: pointer; }
+.clipping-box-seal { font: 45px/1 'UnifrakturMaguntia',serif; color: var(--red-ink); }
+.clipping-lid strong { display: block; font: 700 23px/1.2 'Playfair Display',serif; }
+.clipping-lid span span { display: block; font: 8px/1.7 'Special Elite',monospace; margin-top: .3rem; }
+.clipping-box-prompt { color: var(--red-ink); }
+.is-open .clipping-news { animation: clipping-fan-left .55s cubic-bezier(.2,.8,.2,1); }
+.is-open .clipping-film { animation: clipping-fan-right .6s cubic-bezier(.2,.8,.2,1); }
+@keyframes clipping-fan-left { from { transform: translateY(150px) scale(.8) rotate(0); opacity: 0; } to { transform: translateX(-61px) rotate(-10deg); opacity: 1; } }
+@keyframes clipping-fan-right { from { transform: translateY(150px) scale(.8) rotate(0); opacity: 0; } to { transform: translateX(61px) rotate(9deg); opacity: 1; } }
+.clipping-credit { font-size: 9px; text-align: center; margin: 1rem 0 0; }
+.archive-sheet .archive-number { display: none; }
+.archive-sheet .headline { font-size: 32px; margin: .65rem 0; }
+.archive-sheet .body-text { font-size: 16px; line-height: 1.8; }
+@media (max-width:760px) { .archive-layout { grid-template-columns: 1fr; } .clipping-box { max-width: 340px; width: 100%; margin: 0 auto; } }
+@media (prefers-reduced-motion: reduce) { .is-printing .press-chassis, .is-open .archive-clipping { animation: none; } }
+html[data-motion="off"] .is-printing .press-chassis, html[data-motion="off"] .is-open .archive-clipping { animation: none; }

@@ -160,16 +160,39 @@
   }
 
   // Dialogs use the browser's focus trap, Escape key, and focus restoration.
-  const openDialog = (dialog) => {
+  const dialogOrigins = new WeakMap();
+  const closingDialogs = new WeakSet();
+  const dialogGeometry = (dialog, origin) => {
+    const target = dialog.getBoundingClientRect();
+    const source = origin.getBoundingClientRect();
+    return `translate(${source.left + source.width / 2 - target.left - target.width / 2}px, ${source.top + source.height / 2 - target.top - target.height / 2}px) scale(${Math.max(.15, source.width / target.width)}, ${Math.max(.15, source.height / target.height)})`;
+  };
+  const openDialog = (dialog, origin) => {
     if (!dialog || dialog.open || typeof dialog.showModal !== 'function') return;
     dialog.showModal();
+    if (origin) dialogOrigins.set(dialog, origin);
+    if (origin && motionEnabled() && dialog.animate) {
+      dialog.animate([{ transform: dialogGeometry(dialog, origin), opacity: .65 }, { transform: 'none', opacity: 1 }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    }
+  };
+  const closeDialog = (dialog) => {
+    if (!dialog.open || closingDialogs.has(dialog)) return;
+    const origin = dialogOrigins.get(dialog);
+    if (!origin?.isConnected || !motionEnabled() || !dialog.animate) { dialog.close(); return; }
+    closingDialogs.add(dialog);
+    dialog.getAnimations().forEach(animation => animation.cancel());
+    const animation = dialog.animate([{ transform: 'none', opacity: 1 }, { transform: dialogGeometry(dialog, origin), opacity: 0 }], { duration: 240, easing: 'cubic-bezier(.5,0,.8,.3)' });
+    animation.finished.catch(() => {}).finally(() => { dialog.close(); closingDialogs.delete(dialog); });
   };
   $$('dialog').forEach(dialog => {
-    $('[data-close-dialog]', dialog)?.addEventListener('click', () => dialog.close());
+    $('[data-close-dialog]', dialog)?.addEventListener('click', () => closeDialog(dialog));
+    dialog.addEventListener('cancel', event => {
+      if (dialogOrigins.has(dialog)) { event.preventDefault(); closeDialog(dialog); }
+    });
     dialog.addEventListener('click', event => {
       if (event.target !== dialog) return;
       const bounds = dialog.getBoundingClientRect();
-      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog(dialog);
     });
   });
 
@@ -261,7 +284,7 @@
       visit.hidden = !liveLink;
       if (liveLink) visit.href = liveLink.href;
       $('#project-sheet-preview-note').hidden = Boolean(liveLink);
-      openDialog(projectDialog);
+      openDialog(projectDialog, card);
     });
   });
 
@@ -326,13 +349,41 @@
     const suggestions = ['Lagos called. The future answered.', 'One good idea. A whole new chapter.', 'Built with curiosity. Printed in Lagos.', defaultHeadline];
     let suggestion = 0;
     $('#shuffle-headline').addEventListener('click', () => { headline.value = suggestions[suggestion++ % suggestions.length]; updateProof(); });
+    const pressMachine = $('#edition-press');
+    const printStatus = $('#press-print-status');
+    const replayPrint = $('[data-replay-print]');
+    let printAnimation;
+    let exporting = false;
+    const printButton = $('#print-headline');
+    const feedPaper = async () => {
+      printAnimation?.cancel();
+      printButton.disabled = true;
+      pressMachine?.classList.add('is-printing');
+      if (printStatus) printStatus.textContent = 'Setting the type. Feeding the paper…';
+      if (replayPrint) replayPrint.disabled = true;
+      if (motionEnabled() && proof.animate) {
+        printAnimation = proof.animate([
+          { transform: 'translateY(-105%) rotate(0deg)' },
+          { transform: 'translateY(-88%) rotate(0deg)', offset: .18 },
+          { transform: 'translateY(-54%) rotate(.4deg)', offset: .5 },
+          { transform: 'translateY(0) rotate(0deg)' }
+        ], { duration: 1800, easing: 'cubic-bezier(.3,0,.25,1)' });
+        await printAnimation.finished.catch(() => {});
+      }
+      pressMachine?.classList.remove('is-printing');
+      if (replayPrint) replayPrint.disabled = false;
+      printButton.disabled = exporting;
+      if (printStatus) printStatus.textContent = 'Hot off the press. Made by you.';
+    };
+    replayPrint?.addEventListener('click', feedPaper);
     pressForm.addEventListener('submit', async event => {
       event.preventDefault();
       updateProof();
       const downloadButton = $('#print-headline');
+      exporting = true;
       downloadButton.disabled = true;
-      proof.classList.remove('pressed');
-      requestAnimationFrame(() => proof.classList.add('pressed'));
+      if (replayPrint) replayPrint.disabled = true;
+      const paperReady = feedPaper();
       try {
         // Never wait indefinitely on a font service before creating a keepsake.
         await Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 1500))]);
@@ -391,18 +442,28 @@
         context.fillText('A FICTIONAL FRONT PAGE · MADE IN JACKSON’S PRINTING ROOM', 540, 1250, 880);
         const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
         if (!blob) throw new Error('Export unavailable');
+        await paperReady;
         const url = URL.createObjectURL(blob);
         const link = make('a'); link.href = url; link.download = 'the-lagos-correspondent-your-edition.png';
         document.body.append(link); link.click(); link.remove();
         setTimeout(() => URL.revokeObjectURL(url), 60000);
         announce('Fresh off the press. Your PNG is ready.');
       } catch { announce('Could not create the PNG. Please try again.'); }
-      finally { downloadButton.disabled = false; }
+      finally { await paperReady; exporting = false; downloadButton.disabled = false; }
     });
   }
 
   // Historical notes are labelled summaries, with the original archive credited.
   const archive = $('#lagos-archive');
+  const clippingBox = $('#clipping-box');
+  const clippingToggle = $('#open-clipping-box');
+  clippingToggle?.addEventListener('click', () => {
+    const expanded = clippingToggle.getAttribute('aria-expanded') !== 'true';
+    clippingToggle.setAttribute('aria-expanded', String(expanded));
+    $('#clipping-tray').hidden = !expanded;
+    clippingBox.classList.toggle('is-open', expanded);
+    $('.clipping-box-prompt', clippingToggle).textContent = expanded ? 'Close the box −' : 'Open the box +';
+  });
   archive?.addEventListener('click', event => {
     const button = event.target.closest('button[data-year]');
     if (!button) return;
@@ -412,6 +473,12 @@
       panel.classList.remove('is-changing');
       if (!panel.hidden && motionEnabled()) requestAnimationFrame(() => panel.classList.add('is-changing'));
     });
+    if (button.classList.contains('archive-clipping')) {
+      const panel = $(`[data-archive-panel="${button.dataset.year}"]`, archive);
+      $('#archive-sheet-title').textContent = `Lagos / ${button.dataset.year}`;
+      $('#archive-sheet-body').replaceChildren(...[...panel.children].map(element => element.cloneNode(true)));
+      openDialog($('#archive-sheet'), button);
+    }
     updateProgress();
   });
 
