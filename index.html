@@ -20,7 +20,7 @@
 <script src="theme.js?v=3"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="interactions.css">
-<link rel="stylesheet" href="frontpage.css?v=7">
+<link rel="stylesheet" href="frontpage.css?v=8">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -107,6 +107,9 @@
           </form>
           <noscript><p class="edition-note">Enable JavaScript to typeset and download your own edition.</p></noscript>
         </div>
+        <div class="press-machine" id="edition-press">
+          <div class="press-chassis" aria-hidden="true"><span class="press-maker">Lagos bureau<br><strong>Edition press / 001</strong></span><span class="press-lamp"></span></div>
+          <div class="press-output">
         <div class="press-proof" id="press-proof" role="img" aria-label="Live preview of your fictional front page">
           <div class="proof-masthead">The Lagos Correspondent</div>
           <div class="proof-date"><span>The reader’s edition</span><span>Lagos · One of one</span></div>
@@ -116,6 +119,9 @@
           <div class="proof-lines" aria-hidden="true"></div>
           <span class="proof-stamp">Hot off the press</span>
         </div>
+          </div>
+          <div class="press-machine-footer"><span id="press-print-status" role="status" aria-live="polite">Ready for your story.</span><button type="button" data-replay-print data-enhancement hidden>Replay print</button></div>
+        </div>
       </div>
     </section>
 
@@ -124,10 +130,13 @@
     <section class="archive-section reveal" id="lagos-archive" aria-labelledby="archive-heading">
       <div class="section-head"><div class="section-head-rule"></div><h2 class="section-head-label" id="archive-heading">Lagos, Before the Internet</h2><div class="section-head-rule"></div></div>
       <div class="archive-layout">
-        <div class="archive-years" role="group" aria-label="Choose an archive year">
-          <button type="button" data-year="1926" aria-pressed="true" aria-controls="archive-1926">1926</button>
-          <button type="button" data-year="1960" aria-pressed="false" aria-controls="archive-1960">1960</button>
-          <span class="edition-note">Two moments.<br>One restless city.</span>
+        <div class="clipping-box" id="clipping-box">
+          <div class="clipping-tray" id="clipping-tray" hidden>
+            <button type="button" class="archive-clipping clipping-news" data-year="1926" aria-pressed="true" aria-controls="archive-1926" aria-haspopup="dialog"><span class="clipping-kicker">The newspaper record</span><strong>1926</strong><span class="clipping-illustration" aria-hidden="true"></span><span>A city puts it in print.</span><span class="clipping-inspect">Open clipping +</span></button>
+            <button type="button" class="archive-clipping clipping-film" data-year="1960" aria-pressed="false" aria-controls="archive-1960" aria-haspopup="dialog"><span class="clipping-kicker">The newsreel archive</span><strong>1960</strong><span class="clipping-illustration" aria-hidden="true">▶</span><span>A new chapter.</span><span class="clipping-inspect">Open clipping +</span></button>
+          </div>
+          <button type="button" class="clipping-lid" id="open-clipping-box" aria-expanded="false" aria-controls="clipping-tray" data-enhancement hidden><span class="clipping-box-seal" aria-hidden="true">L</span><span><strong>The Lagos files</strong><span>Two moments. One restless city.</span><span class="clipping-box-prompt">Open the box +</span></span></button>
+          <p class="edition-note clipping-credit">Illustrated archive cards · original sources inside.</p>
         </div>
         <div class="archive-panel" id="archive-1926" data-archive-panel="1926">
           <span class="archive-number" aria-hidden="true">1926</span>
@@ -164,6 +173,7 @@
 </div>
 
 
+<dialog class="edition-dialog morph-dialog archive-sheet" id="archive-sheet" aria-labelledby="archive-sheet-title"><div class="dialog-head"><div><p class="eyebrow">From the Lagos files</p><h2 id="archive-sheet-title">Archive clipping</h2></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close archive clipping">✕</button></div><div id="archive-sheet-body"></div></dialog>
 <dialog class="edition-dialog" id="edition-index" aria-labelledby="edition-index-title">
   <div class="dialog-head"><div><p class="eyebrow">❧ Find your next story</p><h2 id="edition-index-title">The Edition Index</h2></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close edition index">✕</button></div>
   <label class="index-search-label" for="edition-search">Search projects, stories, or a page</label>
@@ -176,7 +186,7 @@
 <button class="back-to-top" type="button" aria-label="Back to the masthead" hidden>↑</button>
 <script type="application/json" id="edition-index-data">[{"title": "Meet Israel Olanrewaju Amoo", "description": "Frontend engineer, technical writer and product builder. Lagos, Nigeria.", "type": "Page 01 · Front page", "url": "index.html"}, {"title": "Shipped projects", "description": "Explore six builds across hospitality, property, commerce, Web3 and games.", "type": "Page 02 · Portfolio", "url": "portfolio.html"}, {"title": "Articles & threads", "description": "Bitcoin, ZK proofs, NFTs and Web3, explained simply.", "type": "Page 03 · Writing", "url": "writing.html"}, {"title": "Start a conversation", "description": "Build a project enquiry or find my email, X and LinkedIn.", "type": "Page 04 · Correspondence", "url": "notices.html"}, {"title": "Make your own front page", "description": "Typeset a headline and download your own newspaper keepsake.", "type": "Play · Printing room", "url": "index.html#press-room"}, {"title": "Lagos, before the internet", "description": "A 1926 newspaper record and a 1960 independence newsreel.", "type": "Explore · Lagos archive", "url": "index.html#lagos-archive"}, {"title": "Community Pulse", "description": "Web3 collaboration platform for communities, projects and collaboration managers.", "type": "Project · Design & development", "url": "portfolio.html#community-pulse"}, {"title": "Blackbell Nigeria", "description": "Fine dining restaurant — full menu presentation, clean booking experience.", "type": "Project · Design & development", "url": "portfolio.html#blackbell-nigeria"}, {"title": "Vistacraft Homes", "description": "Luxury off-plan apartments in Lekki, Lagos — premium real estate, built with precision.", "type": "Project · Design & development", "url": "portfolio.html#vistacraft-homes"}, {"title": "Figure234", "description": "Collectible figure ordering platform — built for serious collectors, optimised to convert.", "type": "Project · Design & development", "url": "portfolio.html#figure234"}, {"title": "Degen Lifestyles", "description": "Web3 Creator DAO — on-chain community for traders, builders and culture-native creators.", "type": "Project · Design & development", "url": "portfolio.html#degen-lifestyles"}, {"title": "Doodlemon Jigsaw", "description": "Interactive Web3 puzzle game — doodled Pokémon cards rebuilt piece by piece. Where Doodles meets Pokémon.", "type": "Project · Design & development", "url": "portfolio.html#doodlemon-jigsaw"}, {"title": "Citrea: Bringing ZK Rollups and Smart Contracts to Bitcoin", "description": "Bitcoin is the most secure blockchain — but it can't run smart contracts. Citrea changes that with ZK rollups. Here's how.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/citrea-bringing-zk-rollups-and-smart-contracts-to-bitcoin-54c1bc8833cb"}, {"title": "The Blockchain Thread You Need to Read", "description": "A deep-dive thread on blockchain fundamentals, explained sharply and without jargon for builders and newcomers alike.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1885987423995195669"}, {"title": "Introducing Mittaria Origin 🧵", "description": "A Web3 project uniting co-owners, co-creators, and community — nurturing an animation-led NFT world unlike anything before it.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/introducing-mittaria-origin-b721bad26d1e"}, {"title": "NFTs Are Not Dead — You're Just Looking in the Wrong Place", "description": "The mainstream narrative killed NFTs. The builders didn't get the memo. A thread on what's actually happening on-chain.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/2056751882916307359"}, {"title": "Brevis: The ZK Coprocessor Transforming Data-Driven Blockchain", "description": "Smart contracts are limited by what the chain allows them to see. Brevis unlocks off-chain data — securely, via ZK proofs.", "type": "Article · Medium", "url": "https://medium.com/@Jacksonnn/brevis-the-zk-coprocessor-transforming-data-driven-blockchain-cca587b9eef4"}, {"title": "Why ZK Proofs Are the Biggest Shift in Blockchain Since Ethereum", "description": "Zero-knowledge proofs sound academic. The implications are anything but. A thread breaking down why this matters right now.", "type": "Article · Thread", "url": "https://x.com/kingjackson_eth/status/1884619133150462299"}]</script>
 <script src="press-transition.js?v=3" defer></script>
-<script src="edition.js?v=3" defer></script>
+<script src="edition.js?v=4" defer></script>
 
 </body>
 </html>

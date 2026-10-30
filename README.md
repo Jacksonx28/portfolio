@@ -68,3 +68,11 @@ A sticky newspaper Extra below the masthead invites visitors to make their own f
 Community Pulse and Vistacraft lead the home page with live embedded previews and full-site links. Both also load live previews automatically in Work. Community Pulse is the first Work entry, Villa Corallina has been removed, and the global project index reflects the six current projects.
 
 The Printing Room callout now appears only on Home. On narrow screens it stays in normal document flow rather than floating over content.
+
+## Three paper interactions
+
+- Home → Printing Room: the fictional front page feeds from a small edition press before the existing PNG download. Replay print animates without downloading again.
+- Work → Project notes: native dialogs expand from the project card and return to it on close, including Escape and keyboard focus restoration.
+- Home → Explore old Lagos → Open the box: two illustrated clippings fan out; select 1926 or 1960 to expand its credited historical note. These are original illustrated cards, not historical photographs.
+
+These are dependency-free adaptations inspired by EasyUI’s Payment Receipt Printer, Morphing Dialog and Photo Box. No React migration or third-party component code is included. Motion follows the reader preference and operating-system reduced-motion setting.
