@@ -293,3 +293,13 @@ html[data-motion="off"] :is(.paper-curtain,.paper-skip,.paper-unfold) { display:
 @media (max-width:760px) { .archive-layout { grid-template-columns: 1fr; } .clipping-box { max-width: 340px; width: 100%; margin: 0 auto; } }
 @media (prefers-reduced-motion: reduce) { .is-printing .press-chassis, .is-open .archive-clipping { animation: none; } }
 html[data-motion="off"] .is-printing .press-chassis, html[data-motion="off"] .is-open .archive-clipping { animation: none; }
+
+.hackathons { margin-block: 2rem 1rem; scroll-margin-top: 1rem; }
+.hackathon-list { list-style: none; margin: 0; padding: 0; }
+.hackathon-list article { height: 100%; padding: 1.25rem; border: 1px solid var(--rule); background: var(--paper-dark); }
+.hackathon-list .body-text { margin-block: .7rem; }
+.hackathon-list .edition-action { min-height: 44px; }
+.hackathons:focus-visible, .hackathon-list a:focus-visible { outline: 2px solid var(--red-ink); outline-offset: 3px; }
+@media (max-width: 600px) {
+  .masthead-nav { flex-wrap: wrap; justify-content: center; gap: .3rem .65rem; }
+}
