@@ -76,3 +76,7 @@ The Printing Room callout now appears only on Home. On narrow screens it stays i
 - Home → Explore old Lagos → Open the box: two illustrated clippings fan out; select 1926 or 1960 to expand its credited historical note. These are original illustrated cards, not historical photographs.
 
 These are dependency-free adaptations inspired by EasyUI’s Payment Receipt Printer, Morphing Dialog and Photo Box. No React migration or third-party component code is included. Motion follows the reader preference and operating-system reduced-motion setting.
+
+## Add a hackathon project
+
+In `portfolio.html`, duplicate a list item inside the Hackathons section. Give its article a unique ID, then update the title, short description and links. The grid adapts to additional entries automatically.

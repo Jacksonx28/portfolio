@@ -20,7 +20,7 @@
 <script src="theme.js?v=3"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="interactions.css">
-<link rel="stylesheet" href="frontpage.css?v=8">
+<link rel="stylesheet" href="frontpage.css?v=9">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -51,6 +51,7 @@
     <nav class="masthead-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="portfolio.html" class="current" aria-current="page">Work</a>
+      <a href="#hackathons">Hackathons</a>
       <a href="writing.html">Writing</a>
       <a href="notices.html">Contact</a>
     </nav>
@@ -177,6 +178,23 @@
 
     </div>
     <noscript><p class="edition-note">Live preview controls need JavaScript. The Visit Site links above work directly.</p></noscript>
+    <section class="selected-dispatches hackathons" id="hackathons" aria-labelledby="hackathons-title" tabindex="-1">
+      <div class="work-section-heading"><h2 id="hackathons-title">Hackathons</h2></div>
+      <ul class="dispatch-grid hackathon-list">
+        <li><article id="payoutlatch">
+          <h3 class="dispatch-name">PayoutLatch</h3>
+          <p class="dispatch-meta">NEAR testnet</p>
+          <p class="body-text">Approve a contributor and an exact amount, then let a designated executor release the payout. The contract locks the recipient and amount and prevents duplicate payouts.</p>
+          <div class="edition-actions"><a class="edition-action" href="https://github.com/Jacksonx28/payoutlatch" aria-label="PayoutLatch on GitHub">GitHub</a><a class="edition-action" href="https://github.com/Jacksonx28/payoutlatch/blob/main/docs/TESTNET_PROOF.md">View testnet proof</a><a class="edition-action" href="https://payoutlatch.israeljackson854.chatgpt.site/">Open app (may require access)</a></div>
+        </article></li>
+        <li><article id="backnext">
+          <h3 class="dispatch-name">BackNext</h3>
+          <p class="dispatch-meta">Creator request board</p>
+          <p class="body-text">Post a request, simulate backing it, and attach the finished work in a browser-local demo. The project also includes a separate WIF support pilot.</p>
+          <div class="edition-actions"><a class="edition-action" href="https://jacksonx28.github.io/backnext/">Open BackNext demo</a><a class="edition-action" href="https://github.com/Jacksonx28/backnext" aria-label="BackNext on GitHub">GitHub</a></div>
+        </article></li>
+      </ul>
+    </section>
   </main>
 
   <div class="page-flip">
